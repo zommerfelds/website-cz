@@ -1,0 +1,33 @@
+doctype html
+
+// Based on Volton Template
+// http://www.templatemo.com/tm-441-volton
+
+html
+  block vars
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    title #{title}
+
+    meta(name='description', content='#{description}')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    link(rel='stylesheet', href='css/normalize.css')
+    link(rel='stylesheet', href='css/font-awesome.css')
+    link(rel='stylesheet', href='css/bootstrap.min.css')
+    link(rel='stylesheet', href='css/main.css')
+    //-script(src='js/vendor/modernizr-2.6.2.min.js')
+  body
+    <!--[if lt IE 7]>
+    p.browsehappy
+      | You are using an outdated browser. Please
+      a(href='http://browsehappy.com/') upgrade your browser
+      | to improve your experience.
+    <![endif]-->
+
+    block content
+    //-
+      script(src='js/vendor/jquery-1.10.2.min.js')
+      script(src='js/min/plugins.min.js')
+      script(src='js/min/main.min.js')
+    script(src='js/concat.min.js')  

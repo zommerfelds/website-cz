@@ -1,0 +1,18 @@
+service: website-cz
+
+provider:
+  name: aws
+  runtime: nodejs4.3
+  stage: dev
+  region: us-east-1
+
+functions:
+  hello:
+    handler: backend/contact.send
+
+plugins:
+  - serverless-client-s3
+
+custom:
+  client:
+    bucketName: website-cz-static
