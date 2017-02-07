@@ -97,12 +97,10 @@ block content
   // Main content
   .main-content
     .container-fluid
-      +section('top', 'Hi! Welcome to my blog and personal website.')
+      +section('top', 'Hi. Welcome to my blog and personal website!')
         +content-block
           p
-            | My name is Christian Zommerfelds and this website is a space for 
-            | me to share things I'm interested in. If you have any kind of 
-            | feedback, I would love to #[a(href='#contact') hear from you]!
+            | My name is Christian Zommerfelds and I've created this website to share things with the world. If you have any kind of feedback, I would love to #[a(href='#contact') hear from you]!
       +section('blog', 'Blog')
         +content-block
           p TODO
@@ -111,17 +109,7 @@ block content
           .about-image
             img(src='img/8.jpg', alt='about me')
           p
-            | Volton is free website design from
-            span.blue template
-            span.green mo
-            | . You can use this template for any purpose. Please tell your friends about it. Thank you. Credit goes to
-            a(rel='nofollow', href='http://unsplash.com', target='_parent') Unsplash
-            |  for images used in this design. You can
-            strong change menu icons
-            |  by checking
-            a(rel='nofollow', href='http://fontawesome.info/font-awesome-icon-world-map/', target='_parent') Font Awesome
-            |  (version 4). Example:
-            strong <i class="fa fa-camera"></i>
+            | TODO
       // PROJECTS
       +section('projects', 'Photos of what I do')
         +content-block
@@ -156,10 +144,10 @@ block content
       +section('contact', 'Send me a message')
         +content-block
           p
-            | Don't hesitate to send me message via the form below. I'll try to respond as fast as I can.
+            | Don't hesitate to send me a message via the form below. I'll try to respond as fast as I can.
         +content-block
           .row
-            form.contact-form(action='#', method='post')
+            form#contact-form.contact-form(action='#', method='post')
               fieldset.col-md-4.col-sm-6
                 input#your-name(type='text', placeholder='Your Name...')
               fieldset.col-md-4.col-sm-6

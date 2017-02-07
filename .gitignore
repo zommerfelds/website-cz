@@ -38,3 +38,4 @@ jspm_packages
 
 /.serverless
 /client/dist
+/client/src/js/2-deploymentData.js

@@ -7,6 +7,8 @@ const jade = require('metalsmith-jade')
 const ignore = require('metalsmith-ignore');
 const uglify = require('metalsmith-uglify');
 
+require('./src/js/2-deploymentData'); // just make sure it exists
+
 Metalsmith(__dirname)
   .metadata({
     title: 'Christian Zommerfelds',

@@ -1,16 +1,15 @@
 'use strict';
 
-module.exports.send = (event, context, callback) => {
+module.exports.sendEmail = function(event, context, callback) {
+  console.log(event);
+
   const response = {
     statusCode: 200,
-    body: JSON.stringify({
-      message: 'Go Serverless v1.0! Your function executed successfully!',
-      input: event,
-    }),
+    /*headers: {
+      "Location" : "http://website-cz-static.s3-website-us-east-1.amazonaws.com/"
+    },*/
+    body: JSON.stringify({ "message": "Hello World!" })
   };
 
   callback(null, response);
-
-  // Use this code if you don't use the http event with the LAMBDA-PROXY integration
-  // callback(null, { message: 'Go Serverless v1.0! Your function executed successfully!', event });
 };

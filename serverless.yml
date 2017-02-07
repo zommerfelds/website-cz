@@ -7,8 +7,10 @@ provider:
   region: us-east-1
 
 functions:
-  hello:
-    handler: backend/contact.send
+  contact:
+    handler: backend/contact.sendEmail
+    events:
+      - http: POST contact
 
 plugins:
   - serverless-client-s3
