@@ -5,9 +5,9 @@ module.exports.sendEmail = function(event, context, callback) {
 
   const response = {
     statusCode: 200,
-    /*headers: {
-      "Location" : "http://website-cz-static.s3-website-us-east-1.amazonaws.com/"
-    },*/
+    headers: {
+      "Access-Control-Allow-Origin" : "*", // required for CORS support to work
+    },
     body: JSON.stringify({ "message": "Hello World!" })
   };
 

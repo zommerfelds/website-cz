@@ -10,7 +10,10 @@ functions:
   contact:
     handler: backend/contact.sendEmail
     events:
-      - http: POST contact
+      - http:
+          path: contact
+          method: post
+          cors: true
 
 plugins:
   - serverless-client-s3
