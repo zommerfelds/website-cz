@@ -26,11 +26,12 @@ Metalsmith(__dirname)
   }))
   .use(uglify({
     removeOriginal: true,
-    order: ['js/vendor/*', 'js/*'],
+    order: [
+      'js/vendor/jquery-*.min.js', // jquery before bootstrap
+      'js/vendor/*', 'js/*'],
     concat: 'js/concat.min.js'
   }))
   .use(sass({
-    outputStyle: 'expanded',
     outputDir: 'css/',
   }))
   /*.use(permalinks())

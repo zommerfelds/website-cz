@@ -147,17 +147,24 @@ block content
             | Don't hesitate to send me a message via the form below. I'll try to respond as fast as I can.
         +content-block
           .row
-            form#contact-form.contact-form(action='#', method='post')
+            form#contact-form.contact-form
               fieldset.col-md-4.col-sm-6
-                input#your-name(type='text', placeholder='Your Name...')
+                input(name='name', type='text', placeholder='Your Name...')
               fieldset.col-md-4.col-sm-6
-                input#email(type='email', placeholder='Your Email...')
+                input(name='email', type='email', placeholder='Your Email...')
               fieldset.col-md-4.col-sm-12
-                input#your-subject(type='text', placeholder='Subject...')
+                input(name='subject', type='text', placeholder='Subject...')
               fieldset.col-md-12.col-sm-12
-                textarea#message(name='message', cols='30', rows='6', placeholder='Leave your message...')
+                textarea(name='message', cols='30', rows='6', placeholder='Leave your message...')
               fieldset.col-md-12.col-sm-12
-                input.button.big.default(type='submit', value='Send Message')
+                input#submit-contact.button.big.default(type='submit', value='Send Message')
+        +content-block
+          #contact-success.alert.alert-success.alert-dismissable.fade.in.hidden
+            a.close(href='#', data-dismiss='alert', aria-label='close') &times
+            p Message sent.
+          #contact-error.alert.alert-danger.alert-dismissable.fade.in.hidden
+            a.close(href='#', data-dismiss='alert', aria-label='close') &times
+            p Error sending message. Please try again later.
       #footer.row
         .col-md-12.text-center
           p.copyright-text Copyright © 2016 Christian Zommerfelds

@@ -11,22 +11,30 @@
     });
 
     $("#contact-form").submit(function(e) {
-      var url = deploymentData.contactUrl;
-      console.log('>>>', url);
+      e.preventDefault(); // avoid to execute the actual submit of the form.
+
+      var data = {};
+      $.each($('#contact-form').serializeArray(), function() {
+          data[this.name] = this.value;
+      });
 
       $.ajax({
         type: 'POST',
-        url: url,
-        data: $("#contact-form").serialize(),
+        url: deploymentData.contactUrl,
+        data: JSON.stringify(data),
+        dataType: 'json',
+        contentType: 'application/json',
         success: function(data) {
-          console.log('yay!');
+          console.log('Sent contact message.');
+          $('#submit-contact').prop('disabled', true);
+          $('#contact-success').removeClass('hidden');
         },
         error: function(jqXHR, textStatus, errorThrown) {
-          console.log('nay!');
+          console.log('Error sending message:', textStatus, errorThrown);
+          $('#submit-contact').prop('disabled', true);
+          $('#contact-error').removeClass('hidden');
         }
       });
-
-      e.preventDefault(); // avoid to execute the actual submit of the form.
     });
   });
 })(jQuery);

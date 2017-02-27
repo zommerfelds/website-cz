@@ -5,6 +5,18 @@ provider:
   runtime: nodejs4.3
   stage: dev
   region: us-east-1
+  iamRoleStatements: # permissions for all functions
+    - Effect: Allow
+      Action:
+        - SNS:Publish
+      Resource:
+        - Ref: WebsiteChristianContact
+
+package:
+  exclude:
+    - "**"
+  include:
+    - "backend/**"
 
 functions:
   contact:
@@ -15,9 +27,41 @@ functions:
           method: post
           cors: true
 
+    custom:
+      env-resources:
+        - WebsiteChristianContact
+
 plugins:
   - serverless-client-s3
+  - serverless-resources-env
 
 custom:
+  stage: ${opt:stage, self:provider.stage}
+  region: ${opt:region, self:provider.region}
   client:
     bucketName: website-cz-static
+
+resources:
+   # CloudFormation template syntax
+  Resources:
+    WebsiteChristianContact:
+      Type: AWS::SNS::Topic
+      Properties:
+        Subscription:
+        - Endpoint: ${file(secrets.yml):email}
+          Protocol: email
+    InvocationErrors:
+      Type: AWS::CloudWatch::Alarm
+      Properties:
+        AlarmActions:
+          - Ref: WebsiteChristianContact
+        ComparisonOperator: GreaterThanThreshold
+        Dimensions:
+          - Name: FunctionName
+            Value: ${self:service}-${self:custom.stage}-contact # todo, is there a better way?
+        EvaluationPeriods: 1
+        MetricName: Errors
+        Namespace: AWS/Lambda
+        Period: 300
+        Statistic: Sum
+        Threshold: 0

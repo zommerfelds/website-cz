@@ -15,15 +15,15 @@
     "url": "https://github.com/zommerfelds/website-cz/issues"
   },
   "homepage": "https://github.com/zommerfelds/website-cz#readme",
-  "dependencies": {
-    "metalsmith-uglify": "^1.5.1"
-  },
+  "dependencies": {},
   "devDependencies": {
     "metalsmith": "^2.3.0",
     "metalsmith-ignore": "^0.1.2",
     "metalsmith-jade": "^2.0.2",
     "metalsmith-markdown": "^0.2.1",
     "metalsmith-sass": "^1.4.0",
-    "serverless-client-s3": "git@github.com:kevzettler/serverless-client-s3.git#1e074d10cf1ad6260d2b12c82b4cad30c3420508"
+    "metalsmith-uglify": "^1.5.1",
+    "serverless-client-s3": "git@github.com:kevzettler/serverless-client-s3.git#1e074d10cf1ad6260d2b12c82b4cad30c3420508",
+    "serverless-resources-env": "^0.3.0"
   }
 }
