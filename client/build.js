@@ -9,7 +9,7 @@ const uglify = require('metalsmith-uglify');
 
 require('./src/js/2-deploymentData'); // just make sure it exists
 
-const devMode = true;
+const devMode = false;
 
 Metalsmith(__dirname)
   .metadata({
