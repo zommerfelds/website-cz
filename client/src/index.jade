@@ -1,170 +1,74 @@
-extends _layout
+extends _page
 
-block vars
-  - var title = 'C. Zommerfelds'
-  - var description = 'Welcome to my page'
+block page-vars
+  - var isMainPage = true
 
-mixin navmenu
-  ul.navigation
-    li
-      a(href='#top')
-        i.fa.fa-globe
-        | Welcome
-    li
-      a(href='#blog')
-        i.fa.fa-file-text
-        | Blog
-    li.subnav
-      a(href='#')
-        i.fa.fa-angle-right
-        | Random post title
-    li.subnav
-      a(href='#')
-        i.fa.fa-angle-right
-        | Another post (I am excited!)
-    li.subnav.subnav-last
-      a(href='#')
-        i.fa.fa-angle-double-right
-        | more posts...
-    li
-      a(href='#about')
-        i.fa.fa-user
-        | About Me
-    li
-      a(href='#projects')
-        i.fa.fa-bar-chart
-        | Projects
-    li
-      a(href='#contact')
-        i.fa.fa-comments
-        | Contact Me
-        
-mixin profile
-  .top-section
-    .profile-image
-      img(src='img/profile.jpg', alt='Volton')
-    .profile-content
-      h3.profile-title Christian Zommerfelds
-      p.profile-description AI / programming / etc
-      
-mixin content-block
-  .row
-    .col-lg-8.col-lg-offset-2.col-sm-10.col-sm-offset-1
-      block
-    
-mixin section(id, title)
-  .page-section(id=id)
+block page-content
+  +section('top', 'Hi. Welcome to my blog and personal website!')
     +content-block
-      h4.widget-title #{title}
-    block
+      p
+        | My name is Christian Zommerfelds and I've created this website to share things with the world. If you have any kind of feedback, I would love to #[a(href='#contact', class='smooth') hear from you]!
+  +section('blog', 'Blog')
     +content-block
-      hr
-
-      
-block content
-  // Mobile header
-  .responsive-header.visible-xs.visible-sm
-    .container
+      p TODO
+  +section('about', 'Learn About Me')
+    +content-block
+      .about-image
+        img(src='img/8.jpg', alt='about me')
+      p
+        | TODO
+  // PROJECTS
+  +section('projects', 'Photos of what I do')
+    +content-block
+      p
+        | Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt auctor a ornare odio. Maecenas et lorem molestie, maximus justo dignissim, cursus nisl. Nullam at ante quis ex pharetra pulvinar quis id dolor. Integer lorem odio, euismod ut sem sit amet, imperdiet condimentum diam.
+    .row.projects-holder
+      .col-md-4.col-sm-6
+        .project-item
+          img(src='img/1.jpg', alt='')
+          .project-hover
+            .inside
+              h5
+                a(href='#') Pellentesque porta ligula
+              p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam cursus
+      .col-md-4.col-sm-6
+        .project-item
+          img(src='img/2.jpg', alt='')
+          .project-hover
+            .inside
+              h5
+                a(href='#') Pellentesque porta ligula
+              p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam cursus
+      .col-md-4.col-sm-6
+        .project-item
+          img(src='img/3.jpg', alt='')
+          .project-hover
+            .inside
+              h5
+                a(href='#') Pellentesque porta ligula
+              p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam cursus.
+  // CONTACT
+  +section('contact', 'Send me a message')
+    +content-block
+      p
+        | Don't hesitate to send me a message via the form below. I'll try to respond as fast as I can.
+    +content-block
       .row
-        .col-md-12
-          +profile
-      a.toggle-menu(href='#')
-        i.fa.fa-bars
-        span  Navigation
-      .main-navigation.responsive-menu
-        +navmenu
-  
-  // Desktop sidebar
-  .sidebar-menu.hidden-xs.hidden-sm
-    +profile
-    .main-navigation
-      +navmenu
-    .social-icons
-      ul
-        li
-          a(href='#')
-            i.fa.fa-facebook
-        li
-          a(href='#')
-            i.fa.fa-twitter
-        li
-          a(href='#')
-            i.fa.fa-linkedin
-        li
-          a(href='#')
-            i.fa.fa-rss
-  
-  // Main content
-  .main-content
-    .container-fluid
-      +section('top', 'Hi. Welcome to my blog and personal website!')
-        +content-block
-          p
-            | My name is Christian Zommerfelds and I've created this website to share things with the world. If you have any kind of feedback, I would love to #[a(href='#contact') hear from you]!
-      +section('blog', 'Blog')
-        +content-block
-          p TODO
-      +section('about', 'Learn About Me')
-        +content-block
-          .about-image
-            img(src='img/8.jpg', alt='about me')
-          p
-            | TODO
-      // PROJECTS
-      +section('projects', 'Photos of what I do')
-        +content-block
-          p
-            | Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt auctor a ornare odio. Maecenas et lorem molestie, maximus justo dignissim, cursus nisl. Nullam at ante quis ex pharetra pulvinar quis id dolor. Integer lorem odio, euismod ut sem sit amet, imperdiet condimentum diam.
-        .row.projects-holder
-          .col-md-4.col-sm-6
-            .project-item
-              img(src='img/1.jpg', alt='')
-              .project-hover
-                .inside
-                  h5
-                    a(href='#') Pellentesque porta ligula
-                  p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam cursus
-          .col-md-4.col-sm-6
-            .project-item
-              img(src='img/2.jpg', alt='')
-              .project-hover
-                .inside
-                  h5
-                    a(href='#') Pellentesque porta ligula
-                  p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam cursus
-          .col-md-4.col-sm-6
-            .project-item
-              img(src='img/3.jpg', alt='')
-              .project-hover
-                .inside
-                  h5
-                    a(href='#') Pellentesque porta ligula
-                  p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam cursus.
-      // CONTACT
-      +section('contact', 'Send me a message')
-        +content-block
-          p
-            | Don't hesitate to send me a message via the form below. I'll try to respond as fast as I can.
-        +content-block
-          .row
-            form#contact-form.contact-form
-              fieldset.col-md-4.col-sm-6
-                input(name='name', type='text', placeholder='Your Name...')
-              fieldset.col-md-4.col-sm-6
-                input(name='email', type='email', placeholder='Your Email...')
-              fieldset.col-md-4.col-sm-12
-                input(name='subject', type='text', placeholder='Subject...')
-              fieldset.col-md-12.col-sm-12
-                textarea(name='message', cols='30', rows='6', placeholder='Leave your message...')
-              fieldset.col-md-12.col-sm-12
-                input#submit-contact.button.big.default(type='submit', value='Send Message')
-        +content-block
-          #contact-success.alert.alert-success.alert-dismissable.fade.in.hidden
-            a.close(href='#', data-dismiss='alert', aria-label='close') &times
-            p Message sent.
-          #contact-error.alert.alert-danger.alert-dismissable.fade.in.hidden
-            a.close(href='#', data-dismiss='alert', aria-label='close') &times
-            p Error sending message. Please try again later.
-      #footer.row
-        .col-md-12.text-center
-          p.copyright-text Copyright © 2016 Christian Zommerfelds
+        form#contact-form.contact-form
+          fieldset.col-md-4.col-sm-6
+            input(name='name', type='text', placeholder='Your Name...')
+          fieldset.col-md-4.col-sm-6
+            input(name='email', type='email', placeholder='Your Email...')
+          fieldset.col-md-4.col-sm-12
+            input(name='subject', type='text', placeholder='Subject...')
+          fieldset.col-md-12.col-sm-12
+            textarea(name='message', cols='30', rows='6', placeholder='Leave your message...')
+          fieldset.col-md-12.col-sm-12
+            input#submit-contact.button.big.default(type='submit', value='Send Message')
+    +content-block
+      #contact-success.alert.alert-success.alert-dismissable.fade.in.hidden
+        a.close(href='#', data-dismiss='alert', aria-label='close') &times
+        p Message sent.
+      #contact-error.alert.alert-danger.alert-dismissable.fade.in.hidden
+        a.close(href='#', data-dismiss='alert', aria-label='close') &times
+        p Error sending message. Please try again later.

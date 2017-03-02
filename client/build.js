@@ -9,6 +9,8 @@ const uglify = require('metalsmith-uglify');
 
 require('./src/js/2-deploymentData'); // just make sure it exists
 
+const devMode = true;
+
 Metalsmith(__dirname)
   .metadata({
     title: 'Christian Zommerfelds',
@@ -22,7 +24,7 @@ Metalsmith(__dirname)
   .use(markdown())
   .use(ignore('_*.jade'))
   .use(jade({
-    pretty: false,
+    pretty: devMode,
   }))
   .use(uglify({
     removeOriginal: true,

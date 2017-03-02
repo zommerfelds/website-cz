@@ -2,7 +2,9 @@
   "use strict";
   $(document).ready(function() {
     $('body').singlePageNav({
-      currentClass : 'active'
+      currentClass: 'active',
+      offset: '30',
+      filter: '.smooth'  // only 'smooth' class will be used
     });
 
     $('.toggle-menu').click(function(){

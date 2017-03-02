@@ -1,0 +1,104 @@
+extends _layout
+
+block vars
+  - var title = 'C. Zommerfelds'
+  - var description = 'Welcome to my page'
+  - var isMainPage = false
+  block page-vars
+
+mixin navmenu
+  ul.navigation
+    li
+      a(href=(isMainPage ? '' : 'index.html') + '#top', class=(isMainPage ? 'smooth' : ''))
+        i.fa.fa-globe
+        | Welcome
+    li
+      a(href=(isMainPage ? '' : 'index.html') + '#blog', class=(isMainPage ? 'smooth' : ''))
+        i.fa.fa-file-text
+        | Blog
+    li.subnav
+      a(href=(isMainPage ? '' : 'index.html') + '#', class=(isMainPage ? 'smooth' : ''))
+        i.fa.fa-angle-right
+        | Random post title
+    li.subnav
+      a(href=(isMainPage ? '' : 'index.html') + '#', class=(isMainPage ? 'smooth' : ''))
+        i.fa.fa-angle-right
+        | Another post (I am excited!)
+    li.subnav.subnav-last
+      a(href=(isMainPage ? '' : 'index.html') + '#', class=(isMainPage ? 'smooth' : ''))
+        i.fa.fa-angle-double-right
+        | more posts...
+    li
+      a(href=(isMainPage ? '' : 'index.html') + '#about', class=(isMainPage ? 'smooth' : ''))
+        i.fa.fa-user
+        | About Me
+    li
+      a(href=(isMainPage ? '' : 'index.html') + '#projects', class=(isMainPage ? 'smooth' : ''))
+        i.fa.fa-bar-chart
+        | Projects
+    li
+      a(href=(isMainPage ? '' : 'index.html') + '#contact', class=(isMainPage ? 'smooth' : ''))
+        i.fa.fa-comments
+        | Contact Me
+        
+mixin profile
+  .top-section
+    .profile-image
+      img(src='img/profile.jpg', alt='Volton')
+    .profile-content
+      h3.profile-title Christian Zommerfelds
+      p.profile-description AI / programming / etc
+      
+mixin content-block
+  .row
+    .col-lg-8.col-lg-offset-2.col-sm-10.col-sm-offset-1
+      block
+    
+mixin section(id, title)
+  .page-section(id=id)
+    +content-block
+      h4.widget-title #{title}
+    block
+    +content-block
+      hr
+
+block content
+  // Mobile header
+  .responsive-header.visible-xs.visible-sm
+    .container
+      .row
+        .col-md-12
+          +profile
+      a.toggle-menu(href='#')
+        i.fa.fa-bars
+        span  Navigation
+      .main-navigation.responsive-menu
+        +navmenu
+  
+  // Desktop sidebar
+  .sidebar-menu.hidden-xs.hidden-sm
+    +profile
+    .main-navigation
+      +navmenu
+    .social-icons
+      ul
+        li
+          a(href='#')
+            i.fa.fa-facebook
+        li
+          a(href='#')
+            i.fa.fa-twitter
+        li
+          a(href='#')
+            i.fa.fa-linkedin
+        li
+          a(href='#')
+            i.fa.fa-rss
+  
+  // Main content
+  .main-content
+    .container-fluid
+      block page-content
+      #footer.row
+        .col-md-12.text-center
+          p.copyright-text Copyright © 2016 Christian Zommerfelds
