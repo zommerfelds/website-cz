@@ -44,9 +44,11 @@ mixin navmenu
 mixin profile
   .top-section
     .profile-image
-      img(src='img/profile.jpg', alt='Volton')
+      a(href='/')
+        img(src='/img/profile.jpg', alt='Volton')
     .profile-content
-      h3.profile-title Christian Zommerfelds
+      a(href='/')
+        h3.profile-title Christian Zommerfelds
       p.profile-description AI / programming / etc
       
 mixin content-block
