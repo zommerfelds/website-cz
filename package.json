@@ -2,6 +2,7 @@
   "name": "website-christian",
   "version": "0.1.0",
   "description": "personal website",
+  "private": true,
   "scripts": {
     "deploy": "bash deploy.sh"
   },
