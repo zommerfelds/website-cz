@@ -4,21 +4,22 @@ block page-vars
   - var isMainPage = true
 
 block page-content
-  +section('top', 'Hi. Welcome to my blog and personal website!')
+  +section('top', 'Welcome to my blog and personal website!')
     +content-block
       p
-        | My name is Christian Zommerfelds and I've created this website to share things with the world. If you have any kind of feedback, I would love to #[a(href='#contact', class='smooth') hear from you]!
+        | I am Christian Zommerfelds and I am a computer scientist. This website is mainly a personal technical project, but also a collection of different posts and information I'd like to share with you. If you have any kind of feedback, please #[a(href='#contact', class='smooth') leave me a message]!
   +section('blog', 'Blog')
     +content-block
       p TODO
-  +section('about', 'Learn About Me')
+  +section('about', 'About Me')
     +content-block
       .about-image
-        img(src='img/8.jpg', alt='about me')
+        img(src='img/climbing.jpg', alt='about me')
       p
         | TODO
+      a(href='files/christian-zommerfelds-resume.pdf', target='_blank') Download resume.
   // PROJECTS
-  +section('projects', 'Photos of what I do')
+  +section('projects', 'Projects')
     +content-block
       p
         | Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt auctor a ornare odio. Maecenas et lorem molestie, maximus justo dignissim, cursus nisl. Nullam at ante quis ex pharetra pulvinar quis id dolor. Integer lorem odio, euismod ut sem sit amet, imperdiet condimentum diam.
@@ -48,21 +49,21 @@ block page-content
                 a(href='#') Pellentesque porta ligula
               p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam cursus.
   // CONTACT
-  +section('contact', 'Send me a message')
+  +section('contact', 'Contact Me')
     +content-block
       p
-        | Don't hesitate to send me a message via the form below. I'll try to respond as fast as I can.
+        | Don't hesitate to send me a message via the form below. I'll try to get back to you as soon as I can.
     +content-block
       .row
         form#contact-form.contact-form
           fieldset.col-md-4.col-sm-6
-            input(name='name', type='text', placeholder='Your Name...')
+            input(name='name', type='text', placeholder='Your name...')
           fieldset.col-md-4.col-sm-6
-            input(name='email', type='email', placeholder='Your Email...')
+            input(name='email', type='email', placeholder='Your email...')
           fieldset.col-md-4.col-sm-12
             input(name='subject', type='text', placeholder='Subject...')
           fieldset.col-md-12.col-sm-12
-            textarea(name='message', cols='30', rows='6', placeholder='Leave your message...')
+            textarea(name='message', cols='30', rows='6', placeholder='Type your message here...')
           fieldset.col-md-12.col-sm-12
             input#submit-contact.button.big.default(type='submit', value='Send Message')
     +content-block

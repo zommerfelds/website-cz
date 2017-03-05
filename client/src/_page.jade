@@ -3,7 +3,8 @@ extends _layout
 block vars
   - var title = 'C. Zommerfelds'
   - var description = 'Welcome to my page'
-  - var isMainPage = false
+  
+  - var isMainPage = false //- this will influence how links work
   block page-vars
 
 mixin navmenu
@@ -85,17 +86,17 @@ block content
     .social-icons
       ul
         li
-          a(href='#')
+          a(href='https://www.facebook.com/zommerfelds', target='_blank')
             i.fa.fa-facebook
         li
-          a(href='#')
+          a(href='https://twitter.com/czommerfelds', target='_blank')
             i.fa.fa-twitter
         li
-          a(href='#')
+          a(href='https://www.linkedin.com/in/zommerfelds/', target='_blank')
             i.fa.fa-linkedin
-        li
-          a(href='#')
-            i.fa.fa-rss
+        //-li
+        //-  a(href='#', target='_blank')
+        //-    i.fa.fa-rss
   
   // Main content
   .main-content
@@ -103,4 +104,4 @@ block content
       block page-content
       #footer.row
         .col-md-12.text-center
-          p.copyright-text Copyright © 2016 Christian Zommerfelds
+          p.copyright-text Copyright © 2017 Christian Zommerfelds
