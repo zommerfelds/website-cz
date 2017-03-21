@@ -2,6 +2,8 @@ extends _page
 
 block page-vars
   - var isMainPage = true
+  script(src='https://www.google.com/recaptcha/api.js')
+
 
 block page-content
   +section('top', 'Welcome to my blog and personal website!')
@@ -64,6 +66,8 @@ block page-content
             input(name='subject', type='text', placeholder='Subject...')
           fieldset.col-md-12.col-sm-12
             textarea(name='message', cols='30', rows='6', placeholder='Type your message here...')
+          fieldset.col-md-12.col-sm-12
+            .g-recaptcha(data-sitekey='6LdtwxkUAAAAAO9EsfmQ21NFDOcSa6rCRwlZeXLT')
           fieldset.col-md-12.col-sm-12
             input#submit-contact.button.big.default(type='submit', value='Send Message')
     +content-block

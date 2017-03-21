@@ -15,6 +15,8 @@
     $("#contact-form").submit(function(e) {
       e.preventDefault(); // avoid to execute the actual submit of the form.
 
+      $('#submit-contact').prop('disabled', true);
+
       var data = {};
       $.each($('#contact-form').serializeArray(), function() {
           data[this.name] = this.value;
@@ -28,12 +30,12 @@
         contentType: 'application/json',
         success: function(data) {
           console.log('Sent contact message.');
-          $('#submit-contact').prop('disabled', true);
+          $('#submit-contact').prop('disabled', false);
           $('#contact-success').removeClass('hidden');
         },
         error: function(jqXHR, textStatus, errorThrown) {
           console.log('Error sending message:', textStatus, errorThrown);
-          $('#submit-contact').prop('disabled', true);
+          $('#submit-contact').prop('disabled', false);
           $('#contact-error').removeClass('hidden');
         }
       });
