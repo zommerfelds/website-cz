@@ -60,10 +60,73 @@ resources:
         ComparisonOperator: GreaterThanThreshold
         Dimensions:
           - Name: FunctionName
-            Value: ${self:service}-${self:custom.stage}-contact # todo, is there a better way?
+            Value: # ${self:service}-${self:custom.stage}-contact
+              Ref: ContactLambdaFunction  # assume this is the internal resource name given by Serverless
         EvaluationPeriods: 1
         MetricName: Errors
         Namespace: AWS/Lambda
+        Period: 300
+        Statistic: Sum
+        Threshold: 0
+    SnsErrors:
+      Type: AWS::CloudWatch::Alarm
+      Properties:
+        AlarmActions:
+          - Ref: WebsiteChristianContact
+        ComparisonOperator: GreaterThanThreshold
+        Dimensions:
+          - Name: TopicName
+            Value:
+              Ref: WebsiteChristianContact
+        EvaluationPeriods: 1
+        MetricName: NumberOfNotificationsFailed
+        Namespace: AWS/SNS
+        Period: 300
+        Statistic: Sum
+        Threshold: 0
+    ApiErrors:
+      Type: AWS::CloudWatch::Alarm
+      Properties:
+        AlarmActions:
+          - Ref: WebsiteChristianContact
+        ComparisonOperator: GreaterThanThreshold
+        Dimensions:
+          - Name: ApiName
+            Value:
+              Ref: ApiGatewayRestApi
+        EvaluationPeriods: 1
+        MetricName: 5XXError
+        Namespace: AWS/ApiGateway
+        Period: 300
+        Statistic: Sum
+        Threshold: 0
+    ClientBucket4xxErrors:
+      Type: AWS::CloudWatch::Alarm
+      Properties:
+        AlarmActions:
+          - Ref: WebsiteChristianContact
+        ComparisonOperator: GreaterThanThreshold
+        Dimensions:
+          - Name: BucketName
+            Value: ${self:custom.client.bucketName}
+        EvaluationPeriods: 1
+        MetricName: 4xxErrors
+        Namespace: AWS/S3
+        Period: 300
+        Statistic: Sum
+        Threshold: 0
+    ClientBucket5xxErrors:
+      Type: AWS::CloudWatch::Alarm
+      Properties:
+        AlarmActions:
+          - Ref: WebsiteChristianContact
+        ComparisonOperator: GreaterThanThreshold
+        Dimensions:
+          - Name: BucketName
+            Value: ${self:custom.client.bucketName}
+        EvaluationPeriods: 1
+        MetricName: 5xxErrors
+        Namespace: AWS/S3
         Period: 300
         Statistic: Sum
         Threshold: 0
