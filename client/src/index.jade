@@ -4,8 +4,11 @@ block page-vars
   - var isMainPage = true
   script(src='https://www.google.com/recaptcha/api.js')
 
-
 block page-content
+  .alert.alert-danger.alert-dismissable.fade.in
+    a.close(href='#', data-dismiss='alert', aria-label='close') &times
+    p Please note: this website is under construction.
+    
   +section('top', 'Welcome to my blog and personal website!')
     +content-block
       p
