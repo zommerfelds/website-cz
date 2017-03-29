@@ -4,6 +4,7 @@
   "description": "personal website",
   "private": true,
   "scripts": {
+    "serve": "./node_modules/.bin/http-server client/dist& ./node_modules/.bin/watch 'echo Re-building...; node client/build.js; echo -n Done -\\ ; date' client/src",
     "deploy": "bash deploy.sh"
   },
   "repository": {
@@ -18,6 +19,7 @@
   "homepage": "https://github.com/zommerfelds/website-cz#readme",
   "dependencies": {},
   "devDependencies": {
+    "http-server": "0.9.0",
     "metalsmith": "^2.3.0",
     "metalsmith-ignore": "^0.1.2",
     "metalsmith-jade": "^2.0.2",
@@ -25,6 +27,7 @@
     "metalsmith-sass": "^1.4.0",
     "metalsmith-uglify": "^1.5.1",
     "serverless-client-s3": "git@github.com:kevzettler/serverless-client-s3.git#1e074d10cf1ad6260d2b12c82b4cad30c3420508",
-    "serverless-resources-env": "^0.3.0"
+    "serverless-resources-env": "^0.3.0",
+    "watch": "1.0.2"
   }
 }
