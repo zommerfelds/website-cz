@@ -10,8 +10,7 @@ block page-content
     
   +section('top', 'Welcome to my blog and personal website!')
     +content-block
-      p
-        | I'm Christian Zommerfelds and I'm a computer scientist. This website is mainly a personal technical project, but also a collection of different posts and information I'd like to share with the world. If you have any kind of feedback, please #[a(href='#contact', class='smooth') leave me a message]!
+      p I'm Christian Zommerfelds and I'm a computer scientist. This website is mainly a personal technical project, but also a collection of different posts and information I'd like to share with the world. If you have any kind of feedback, please #[a(href='#contact', class='smooth') leave me a message]!
   +section('blog', 'Blog')
     +content-block
       p TODO
@@ -19,14 +18,35 @@ block page-content
     +content-block
       .about-image
         img(src='img/climbing.jpg', alt='about me')
-      p
-        | TODO
-      a(href='files/christian-zommerfelds-resume.pdf', target='_blank') Download resume.
+      .about-image-caption Rock climbing the Chemiflue in Switzerland.
+      p I currently live in the Waterloo region in Canada and work as a software developer. Feel free to download my resume #[a(href='files/christian-zommerfelds-resume.pdf', target='_blank') here].
+      
+      p I love ...
+      ul
+        li #[b data science]#[br] I'm always reading about the newest research in neural networks and AI technoligy. Fascinating subject.
+        li #[b game design]#[br] My first contact with programming was making video games. I still love to design games and every once in a while develop one.
+        li #[b beer brewing]#[br] A highly complex chemical process that creates amazing variaeties and tastes. Hopefully I'll get to post something about our family brewery soon.
+        li #[b startups]#[br] Transforming how businesses work and designing new technologies is a passion of mine. I'm getting ready to make my next big step...
+
+      p Also find me on:
+      .button-list
+        a.button-list-item.btn.btn-info(href='https://twitter.com/czommerfelds', target='_blank')
+          i.fa.fa-twitter
+          div Twitter
+        a.button-list-item.btn.btn-info(href='https://www.linkedin.com/in/zommerfelds/', target='_blank')
+          i.fa.fa-linkedin
+          div LinkedIn
+        a.button-list-item.btn.btn-info(href='https://www.facebook.com/zommerfelds', target='_blank')
+          i.fa.fa-facebook
+          div Facebook
+          
   // PROJECTS
   +section('projects', 'Projects')
     +content-block
       p
-        | Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt auctor a ornare odio. Maecenas et lorem molestie, maximus justo dignissim, cursus nisl. Nullam at ante quis ex pharetra pulvinar quis id dolor. Integer lorem odio, euismod ut sem sit amet, imperdiet condimentum diam.
+        | Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt auctor a ornare odio.
+      p
+        | Maecenas et lorem molestie, maximus justo dignissim, cursus nisl. Nullam at ante quis ex pharetra pulvinar quis id dolor. Integer lorem odio, euismod ut sem sit amet, imperdiet condimentum diam.
     .row.projects-holder
       .col-md-4.col-sm-6
         .project-item
