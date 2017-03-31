@@ -5,6 +5,8 @@ doctype html
 
 html
   head
+    block head
+  
     meta(charset='utf-8')
     meta(http-equiv='X-UA-Compatible', content='IE=edge')
     title #{title}
@@ -23,8 +25,6 @@ html
     meta(name='msapplication-TileImage', content='img/favicon/favicon-144.png')
     link(rel='icon', href='img/favicon/favicon-16.png', type='image/x-icon', sizes='16x16')
     link(rel='icon', href='img/favicon/favicon-192.png', type='image/x-icon', sizes='192x192')
-    
-    block head
 
   body
     <!--[if lt IE 7]>
