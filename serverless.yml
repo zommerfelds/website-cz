@@ -28,7 +28,7 @@ functions:
           cors: true
     environment:
       RECAPTCHA_SECRET: ${file(secrets.yml):recapchaSecret}
-      CORS_ORIGIN: http://christian.zommerfelds.com
+      CORS_ORIGIN: '*' # Could put http://christian.zommerfelds.com, but there is no security benefit in this case
     custom:
       env-resources:
         - WebsiteChristianContact

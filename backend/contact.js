@@ -10,13 +10,13 @@ const lambdaHandler = require('lambda-handler-as-promised');
 console.log('INIT => snsRegion:', snsRegion);
 console.log('INIT => process.env.CF_WebsiteChristianContact:', process.env.CF_WebsiteChristianContact);
 
-function makeResponse(status) {
+function makeResponse(status, message) {
   return {
     statusCode: status,
     headers: {
       'Access-Control-Allow-Origin' : process.env.CORS_ORIGIN,
     },
-    body: '{}'
+    body: (message ? JSON.stringify({message}) : '{}')
   };
 }
 
@@ -48,7 +48,7 @@ function checkGRecaptcha(recaptchaResponse) {
   return rp(options).then(function (body) {
     console.log('reCAPTCHA API response:', body);
     if (!JSON.parse(body).success) {
-      return Promise.reject('reCAPTCHA rejected');
+      return Promise.reject({status: 400, message: 'reCAPTCHA rejected'});
     }
   });
 }
@@ -65,5 +65,6 @@ module.exports.sendEmail = lambdaHandler((event) => {
 
   return checkGRecaptcha(contactForm['g-recaptcha-response'])
     .then(() => snsPublish(contactForm.name, contactForm.email, contactForm.message))
-    .then(() => makeResponse(200));
+    .then(() => makeResponse(200))
+    .catch({status: 400}, e => makeResponse(400, e.message));
 });
