@@ -51,14 +51,13 @@
         dataType: 'json',
         contentType: 'application/json',
         success: function success(/* data */) {
-          // console.log('Sent contact message.');
           $('#contact-response').append(makeAlert('alert-success', 'Message sent.'));
           grecaptcha.reset();
           contactResponse();
         },
-        error: function error(/* jqXHR, textStatus, errorThrown */) {
-          // console.log('Error sending message:', textStatus, errorThrown, jqXHR);
-          $('#contact-response').append(makeAlert('alert-danger', 'Error sending message. Please try again later.'));
+        error: function error(jqXHR) {
+          $('#contact-response').append(makeAlert('alert-danger', 'Error sending message. Please try again later.' +
+            (jqXHR.responseJSON ? '<br>Details: ' + jqXHR.responseJSON.message : '')));
           contactResponse();
         }
       });

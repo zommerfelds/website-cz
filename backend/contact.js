@@ -75,9 +75,10 @@ function validateContent(contactForm) {
 module.exports.sendEmail = (event, context, callback) => {
   console.log('Received event:', event);
 
-  const contactForm = JSON.parse(event.body);
+  let contactForm;
 
   return Promise.resolve()
+    .then(() => { contactForm = JSON.parse(event.body); })
     .then(() => validateContent(contactForm))
     .then(() => checkGRecaptcha(contactForm['g-recaptcha-response']))
     .then(() => snsPublish(contactForm.name, contactForm.email, contactForm.message))
@@ -85,7 +86,7 @@ module.exports.sendEmail = (event, context, callback) => {
     .catch(ApiError, e => makeResponse(e.status, e.message))
     .then(response => callback(null, response))
     .catch((e) => {
-      console.log('Unhandled exception:', e);
-      callback(e);
+      console.log('ERROR: Unhandled exception:', e);
+      callback(null, makeResponse(500, 'Internal server error. Please contact me via the e-mail in my resume.'));
     });
 };
