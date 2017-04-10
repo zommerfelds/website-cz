@@ -1,8 +1,9 @@
 {
   "dependencies": {
-    "aws-sdk": "^2.18.0",
-    "lambda-handler-as-promised": "1.2.1",
+    "aws-sdk": "2.40.0",
+    "bluebird": "3.5.0",
     "request": "2.81.0",
-    "request-promise": "4.2.0"
+    "request-promise": "4.2.0",
+    "validator": "7.0.0"
   }
 }

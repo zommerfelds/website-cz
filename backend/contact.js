@@ -1,34 +1,42 @@
-'use strict';
-
 const SNS = require('aws-sdk/clients/sns');
-const snsRegion = process.env.AWS_REGION;
-const sns = new SNS({snsRegion});
-const gRecaptchaUrl = 'https://www.google.com/recaptcha/api/siteverify';
 const rp = require('request-promise');
-const lambdaHandler = require('lambda-handler-as-promised');
+const validator = require('validator');
+const Promise = require('bluebird');
+
+const snsRegion = process.env.AWS_REGION;
+const sns = new SNS({ snsRegion });
+const gRecaptchaUrl = 'https://www.google.com/recaptcha/api/siteverify';
 
 console.log('INIT => snsRegion:', snsRegion);
 console.log('INIT => process.env.CF_WebsiteChristianContact:', process.env.CF_WebsiteChristianContact);
+
+class ApiError extends Error {
+  constructor(message, status) {
+    super(message);
+    this.name = 'ApiError';
+    this.status = status;
+  }
+}
 
 function makeResponse(status, message) {
   return {
     statusCode: status,
     headers: {
-      'Access-Control-Allow-Origin' : process.env.CORS_ORIGIN,
+      'Access-Control-Allow-Origin': process.env.CORS_ORIGIN,
     },
-    body: (message ? JSON.stringify({message}) : '{}')
+    body: (message ? JSON.stringify({ message }) : '{}'),
   };
 }
 
 const mandatoryFields = ['name', 'email', 'message', 'g-recaptcha-response'];
 
 function snsPublish(name, email, message) {
-  const snsMessage = `Name: ${name}\nE-mail: ${email}\n\n` + message;
+  const snsMessage = `Name: ${name}\nE-mail: ${email}\n\n${message}`;
 
   const params = {
     Message: snsMessage,
     Subject: `New contact request (${name})`,
-    TopicArn: process.env.CF_WebsiteChristianContact
+    TopicArn: process.env.CF_WebsiteChristianContact,
   };
 
   return sns.publish(params).promise();
@@ -42,29 +50,42 @@ function checkGRecaptcha(recaptchaResponse) {
       secret: process.env.RECAPTCHA_SECRET,
       response: recaptchaResponse,
       // remoteip: 'TODO: add this if it filter needs improvement'
-    }
+    },
   };
 
-  return rp(options).then(function (body) {
+  return rp(options).then((body) => {
     console.log('reCAPTCHA API response:', body);
     if (!JSON.parse(body).success) {
-      return Promise.reject({status: 400, message: 'reCAPTCHA rejected'});
+      throw new ApiError('reCAPTCHA rejected', 400);
     }
   });
 }
 
-module.exports.sendEmail = lambdaHandler((event) => {
+function validateContent(contactForm) {
+  mandatoryFields.forEach((field) => {
+    if (typeof contactForm[field] !== 'string' || contactForm[field] === '') {
+      throw new ApiError(`${field} must be non-empty string`, 400);
+    }
+  });
+  if (!validator.isEmail(contactForm.email)) {
+    throw new ApiError('e-mail is invalid', 400);
+  }
+}
+
+module.exports.sendEmail = (event, context, callback) => {
   console.log('Received event:', event);
 
   const contactForm = JSON.parse(event.body);
-  mandatoryFields.forEach((field) => {
-    if (contactForm[field] === undefined) {
-      return makeResponse(400);
-    }
-  });
 
-  return checkGRecaptcha(contactForm['g-recaptcha-response'])
+  return Promise.resolve()
+    .then(() => validateContent(contactForm))
+    .then(() => checkGRecaptcha(contactForm['g-recaptcha-response']))
     .then(() => snsPublish(contactForm.name, contactForm.email, contactForm.message))
     .then(() => makeResponse(200))
-    .catch({status: 400}, e => makeResponse(400, e.message));
-});
+    .catch(ApiError, e => makeResponse(e.status, e.message))
+    .then(response => callback(null, response))
+    .catch((e) => {
+      console.log('Unhandled exception:', e);
+      callback(e);
+    });
+};
