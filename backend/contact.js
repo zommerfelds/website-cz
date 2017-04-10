@@ -83,10 +83,13 @@ module.exports.sendEmail = (event, context, callback) => {
     .then(() => checkGRecaptcha(contactForm['g-recaptcha-response']))
     .then(() => snsPublish(contactForm.name, contactForm.email, contactForm.message))
     .then(() => makeResponse(200))
-    .catch(ApiError, e => makeResponse(e.status, e.message))
+    .catch(ApiError, (e) => {
+      console.log(`ERROR (${e.status}): ${e.message}`);
+      return makeResponse(e.status, e.message);
+    })
     .then(response => callback(null, response))
     .catch((e) => {
-      console.log('ERROR: Unhandled exception:', e);
+      console.log('ERROR (500): Unhandled exception:', e);
       callback(null, makeResponse(500, 'Internal server error. Please contact me via the e-mail in my resume.'));
     });
 };

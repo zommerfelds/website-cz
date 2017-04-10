@@ -68,6 +68,27 @@ resources:
         Period: 300
         Statistic: Sum
         Threshold: 0
+    LogFilterErrors:
+      Type: AWS::CloudWatch::Alarm
+      Properties:
+        AlarmActions:
+          - Ref: WebsiteChristianContact
+        ComparisonOperator: GreaterThanThreshold
+        EvaluationPeriods: 1
+        MetricName: LogErrors
+        Namespace: WebsiteCZ
+        Period: 300
+        Statistic: Sum
+        Threshold: 0
+    LogFilterMetric: # TODO: stack dimension
+      Type: "AWS::Logs::MetricFilter"
+      Properties:
+        FilterPattern: "ERROR"
+        LogGroupName: "/aws/lambda/${self:service}-${self:custom.stage}-contact" # TODO: don't hard code this
+        MetricTransformations:
+          - MetricName: LogErrors
+            MetricNamespace: WebsiteCZ
+            MetricValue: 1
     SnsErrors:
       Type: AWS::CloudWatch::Alarm
       Properties:
