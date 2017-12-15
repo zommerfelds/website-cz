@@ -5,7 +5,9 @@
   "private": true,
   "scripts": {
     "serve": "./node_modules/.bin/http-server client/dist& ./node_modules/.bin/watch 'echo Re-building...; node client/build.js; echo -n Done -\\ ; date' client/src",
-    "deploy": "bash deploy.sh"
+    "deploy-backend": "bash deploy-backend.sh",
+    "deploy-frontend": "node client/build.js && `npm bin`/sls client deploy",
+    "deploy": "npm run deploy-backend && npm run deploy-frontend"
   },
   "repository": {
     "type": "git",
@@ -30,8 +32,9 @@
     "metalsmith-jade": "^2.0.2",
     "metalsmith-markdown": "^0.2.1",
     "metalsmith-sass": "^1.4.0",
-    "metalsmith-uglify": "^1.5.1",
-    "serverless-client-s3": "git@github.com:kevzettler/serverless-client-s3.git#1e074d10cf1ad6260d2b12c82b4cad30c3420508",
+    "metalsmith-uglify": "^1.5.3",
+    "serverless": "^1.24.1",
+    "serverless-client-s3": "git+ssh://git@github.com/kevzettler/serverless-client-s3.git#1e074d10cf1ad6260d2b12c82b4cad30c3420508",
     "serverless-resources-env": "^0.3.0",
     "watch": "1.0.2"
   }
