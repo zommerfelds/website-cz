@@ -5,4 +5,4 @@ block page-content
     +content-block
       ul
       each post in posts
-        li #[a(href='#{post.path}') #{post.title}]
+        li #[a(href='/#{post.path}') #{post.title}]

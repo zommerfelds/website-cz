@@ -16,29 +16,36 @@ metalsmith(__dirname)
   .metadata({
     title: 'Christian Zommerfelds',
     description: 'It\'s about saying »Hello« to the World!',
-    generator: 'Metalsmith',
     url: 'http://uiaeuiaeuiae',
     devMode
   })
   .source('./src')
   .destination('./dist')
   // .clean(false)
-  .use(uglify({
-    root: 'js',
-    concat: {file: 'scripts.min.js'},
-    removeOriginal: true
+  .use(sass({
+    outputDir: 'css/'
   }))
+  .use(markdown())
   .use(collections({
-    posts: 'posts/*.md',
+    posts: 'posts/**',
     sortBy: 'date',
     reverse: true
   }))
-  .use(markdown())
-  .use(permalinks())
-  .use(ignore('_*.jade'))
+  .use(ignore('layouts/**'))
+  .use((files, m, done) => { // there is a cyclical dependency between the plugins, so let's fix some permalinks before we run jade
+    for (const post of m.metadata().posts) {
+      if (post.path.endsWith('.html')) {
+        post.path = post.path.slice(0, -'.html'.length);
+      }
+    }
+    done();
+  })
   .use(jade({
     pretty: devMode,
     useMetadata: true
+  }))
+  .use(permalinks({
+    relative: false
   }))
   .use(layouts({
     engine: 'jade',
@@ -46,8 +53,10 @@ metalsmith(__dirname)
     default: 'post.jade',
     pattern: 'posts/**'
   }))
-  .use(sass({
-    outputDir: 'css/'
+  .use(uglify({
+    root: 'js',
+    concat: {file: 'scripts.min.js'},
+    removeOriginal: true
   }))
   .build((err) => {
     if (err) { throw err; }
