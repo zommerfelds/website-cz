@@ -1,8 +1,7 @@
-extends _layout
+extends _main
 
 block head
-  - var title = 'C. Zommerfelds'
-  - var description = 'Welcome to my page'
+  - var metaDescription = 'Welcome to my page'
   
   - var isMainPage = false //- this will influence how links work
   block page-vars
@@ -10,35 +9,32 @@ block head
 mixin navmenu
   ul.navigation
     li
-      a(href=(isMainPage ? '' : 'index.html') + '#top', class=(isMainPage ? 'smooth' : ''))
+      a(href=(isMainPage ? '' : '/') + '#top', class=(isMainPage ? 'smooth' : ''))
         i.fa.fa-globe
         | Welcome
     li
-      a(href=(isMainPage ? '' : 'index.html') + '#blog', class=(isMainPage ? 'smooth' : ''))
+      a(href=(isMainPage ? '' : '/') + '#blog', class=(isMainPage ? 'smooth' : ''))
         i.fa.fa-file-text
         | Blog
-    li.subnav
-      a(href=(isMainPage ? '' : 'index.html') + '#', class=(isMainPage ? 'smooth' : ''))
-        i.fa.fa-angle-right
-        | Random post title
-    li.subnav
-      a(href=(isMainPage ? '' : 'index.html') + '#', class=(isMainPage ? 'smooth' : ''))
-        i.fa.fa-angle-right
-        | Another post (I am excited!)
+    each post in posts
+      li.subnav
+        a(href='/#{post.path}')
+          i.fa.fa-angle-right
+          | #{post.title}
     li.subnav.subnav-last
-      a(href=(isMainPage ? '' : 'index.html') + '#', class=(isMainPage ? 'smooth' : ''))
+      a(href='/blog')
         i.fa.fa-angle-double-right
-        | more posts...
+        | All posts...
     li
-      a(href=(isMainPage ? '' : 'index.html') + '#about', class=(isMainPage ? 'smooth' : ''))
+      a(href=(isMainPage ? '' : '/') + '#about', class=(isMainPage ? 'smooth' : ''))
         i.fa.fa-user
         | About Me
     li
-      a(href=(isMainPage ? '' : 'index.html') + '#projects', class=(isMainPage ? 'smooth' : ''))
+      a(href=(isMainPage ? '' : '/') + '#projects', class=(isMainPage ? 'smooth' : ''))
         i.fa.fa-bar-chart
         | Projects
     li
-      a(href=(isMainPage ? '' : 'index.html') + '#contact', class=(isMainPage ? 'smooth' : ''))
+      a(href=(isMainPage ? '' : '/') + '#contact', class=(isMainPage ? 'smooth' : ''))
         i.fa.fa-comments
         | Contact Me
         

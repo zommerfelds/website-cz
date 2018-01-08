@@ -1,45 +1,54 @@
-const Metalsmith = require('metalsmith');
+const metalsmith = require('metalsmith');
 const markdown = require('metalsmith-markdown');
-//const layouts     = require('metalsmith-layouts');
-//const permalinks  = require('metalsmith-permalinks');
+const permalinks  = require('metalsmith-permalinks');
 const sass = require('metalsmith-sass');
-const jade = require('metalsmith-jade')
+const jade = require('metalsmith-jade');
 const ignore = require('metalsmith-ignore');
 const uglify = require('metalsmith-uglify');
+const collections = require('metalsmith-collections');
+const layouts = require('metalsmith-layouts');
 
 require('./src/js/2-deploymentData'); // just make sure it exists
 
 const devMode = false;
 
-Metalsmith(__dirname)
+metalsmith(__dirname)
   .metadata({
     title: 'Christian Zommerfelds',
     description: 'It\'s about saying »Hello« to the World!',
     generator: 'Metalsmith',
-    url: 'http://uiaeuiaeuiae'
+    url: 'http://uiaeuiaeuiae',
+    devMode
   })
   .source('./src')
   .destination('./dist')
-  .clean(false)
+  // .clean(false)
+  .use(uglify({
+    root: 'js',
+    concat: {file: 'scripts.min.js'},
+    removeOriginal: true
+  }))
+  .use(collections({
+    posts: 'posts/*.md',
+    sortBy: 'date',
+    reverse: true
+  }))
   .use(markdown())
+  .use(permalinks())
   .use(ignore('_*.jade'))
   .use(jade({
     pretty: devMode,
+    useMetadata: true
   }))
-  .use(uglify({
-    removeOriginal: true,
-    order: [
-      'js/vendor/jquery-*.min.js', // jquery before bootstrap
-      'js/vendor/*', 'js/*'],
-    concat: 'js/concat.min.js'
+  .use(layouts({
+    engine: 'jade',
+    directory: 'src/layouts',
+    default: 'post.jade',
+    pattern: 'posts/**'
   }))
   .use(sass({
-    outputDir: 'css/',
+    outputDir: 'css/'
   }))
-  /*.use(permalinks())
-  .use(layouts({
-    engine: 'handlebars'
-  }))*/
-  .build(function(err, files) {
+  .build((err) => {
     if (err) { throw err; }
   });
