@@ -142,6 +142,10 @@ if (typeof Object.create !== 'function') {
         },
 
         getCurrentSection: function(scrollPos) {
+            if (this.$links.length === 0) { // added by Christian Zommerfelds
+                return undefined;
+            }
+
             var i, hash, coords, section;
 
             for (i = 0; i < this.$links.length; i++) {

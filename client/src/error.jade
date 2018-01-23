@@ -1,7 +1,7 @@
 extends layouts/_page
 
 block page-content
-  +section('error', '404 - This is an error!')
+  +section('top', '404 - This is an error!')
     +content-block
       p
-        | The page was not found. If you think that there is a problem with this web page, please send me a message on the #[a(href='index.html#contact') contact page]!
+        | The page was not found. If you think that there is a problem with this web page, please send me a message on the #[a(href='/index.html#contact') contact page]!

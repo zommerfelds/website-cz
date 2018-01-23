@@ -2,9 +2,9 @@ extends _main
 
 block head
   - var metaDescription = 'Welcome to my page'
-  
   - var isMainPage = false //- this will influence how links work
   block page-vars
+  script(src='https://www.google.com/recaptcha/api.js')
 
 mixin navmenu
   ul.navigation
@@ -70,7 +70,7 @@ block content
           +profile
       a.toggle-menu(href='#')
         i.fa.fa-bars
-        span  Navigation
+        span Navigation
       .main-navigation.responsive-menu
         +navmenu
   

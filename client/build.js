@@ -11,6 +11,9 @@ const layouts = require('metalsmith-layouts');
 require('./src/js/2-deploymentData'); // just make sure it exists
 
 const devMode = false;
+if (devMode) {
+  console.log('WARNING: devMode = true');
+}
 
 metalsmith(__dirname)
   .metadata({
