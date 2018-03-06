@@ -19,6 +19,7 @@
     "url": "https://github.com/zommerfelds/website-cz/issues"
   },
   "homepage": "https://github.com/zommerfelds/website-cz#readme",
+  "dependencies": {},
   "devDependencies": {
     "babel-eslint": "^8.2.2",
     "eslint": "^4.18.2",
@@ -33,11 +34,11 @@
     "metalsmith-ignore": "^0.1.2",
     "metalsmith-jade": "^2.0.2",
     "metalsmith-layouts": "^2.1.0",
-    "metalsmith-markdown": "^0.2.1",
+    "metalsmith-markdown": "^0.2.2",
     "metalsmith-permalinks": "^0.5.0",
-    "metalsmith-sass": "^1.4.0",
-    "metalsmith-uglify": "^2.0.1",
-    "serverless": "^1.24.1",
+    "metalsmith-sass": "^1.5.1",
+    "metalsmith-uglify": "^2.1.1",
+    "serverless": "^1.26.1",
     "serverless-finch": "^1.4.0",
     "serverless-resources-env": "^0.3.0",
     "watch": "^1.0.2"

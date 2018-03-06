@@ -82,6 +82,7 @@ resources:
         Threshold: 0
     LogFilterMetric:
       Type: AWS::Logs::MetricFilter
+      DependsOn: ContactLambdaFunction  # assume this is the internal resource name given by Serverless
       Properties:
         FilterPattern: "ERROR"
         LogGroupName: "/aws/lambda/${self:service}-${self:custom.stage}-contact" # TODO: don't hard code this
