@@ -6,6 +6,7 @@
  * @author Chris Wojcik
  * @version 1.1.0
  */
+// Modified by Christian Zommerfelds
 
 // Utility
 if (typeof Object.create !== 'function') {
@@ -143,7 +144,7 @@ if (typeof Object.create !== 'function') {
         },
 
         getCurrentSection: function(scrollPos) {
-            if (this.$links.length === 0) { // added by Christian Zommerfelds
+            if (this.$links.length === 0) { // NOTE: added by Christian Zommerfelds
                 return undefined;
             }
 
