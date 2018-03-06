@@ -1,5 +1,5 @@
 # website-cz
-My personal website: christian.zommerfelds.com
+My personal website: [christian.zommerfelds.com](http://christian.zommerfelds.com)
 
 ## Dev notes
 
