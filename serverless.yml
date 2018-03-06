@@ -34,7 +34,7 @@ functions:
         - WebsiteChristianContact
 
 plugins:
-  - serverless-client-s3
+  - serverless-finch
   - serverless-resources-env
 
 custom:
