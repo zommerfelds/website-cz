@@ -51,7 +51,6 @@ metalsmith(__dirname)
     relative: false
   }))
   .use(layouts({
-    engine: 'jade',
     directory: 'src/layouts',
     default: 'post.jade',
     pattern: 'posts/**'
