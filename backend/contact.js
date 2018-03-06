@@ -1,4 +1,4 @@
-// AWS SDK is included by default in Lambda, so we don't list it as a dependency
+// The AWS SDK is included by default in Lambda, so we don't list it as a dependency
 const SNS = require('aws-sdk/clients/sns'); // eslint-disable-line import/no-extraneous-dependencies
 const rp = require('request-promise');
 const validator = require('validator');
