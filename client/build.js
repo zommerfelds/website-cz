@@ -2,7 +2,7 @@ const metalsmith = require('metalsmith');
 const markdown = require('metalsmith-markdown');
 const permalinks  = require('metalsmith-permalinks');
 const sass = require('metalsmith-sass');
-const jade = require('metalsmith-jade');
+const pug = require('metalsmith-pug');
 const ignore = require('metalsmith-ignore');
 const uglify = require('metalsmith-uglify');
 const collections = require('metalsmith-collections');
@@ -35,7 +35,7 @@ metalsmith(__dirname)
     reverse: true
   }))
   .use(ignore('layouts/**'))
-  .use((files, m, done) => { // there is a cyclical dependency between the plugins, so let's fix some permalinks before we run jade
+  .use((files, m, done) => { // there is a cyclical dependency between the plugins, so let's fix some permalinks before we run pug
     for (const post of m.metadata().posts) {
       if (post.path.endsWith('.html')) {
         post.path = post.path.slice(0, -'.html'.length);
@@ -43,7 +43,7 @@ metalsmith(__dirname)
     }
     done();
   })
-  .use(jade({
+  .use(pug({
     pretty: devMode,
     useMetadata: true
   }))
@@ -52,7 +52,7 @@ metalsmith(__dirname)
   }))
   .use(layouts({
     directory: 'src/layouts',
-    default: 'post.jade',
+    default: 'post.pug',
     pattern: 'posts/**'
   }))
   .use(uglify({
