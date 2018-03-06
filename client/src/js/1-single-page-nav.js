@@ -1,3 +1,4 @@
+/* eslint-disable */
 /**
  * Single Page Nav Plugin
  * Copyright (c) 2013 Chris Wojcik <hello@chriswojcik.net>
