@@ -10,17 +10,15 @@ const layouts = require('metalsmith-layouts');
 
 require('./src/js/2-deploymentData'); // just make sure it exists
 
-const devMode = false;
-if (devMode) {
-  console.log('WARNING: devMode = true');
-}
+const devMode = (process.env.DEV_MODE === "true");
+console.log('Dev mode:', devMode);
 
 metalsmith(__dirname)
   .metadata({
     title: 'Christian Zommerfelds',
     description: 'It\'s about saying »Hello« to the World!',
     url: 'http://uiaeuiaeuiae',
-    devMode
+    disableRecaptcha: devMode
   })
   .source('./src')
   .destination('./dist')

@@ -90,7 +90,7 @@ block page-content
           fieldset.col-md-12.col-sm-12
             textarea(name='message', cols='30', rows='6', placeholder='Type your message here...', required)
           fieldset.col-sm-7
-            if !devMode
+            if !disableRecaptcha
               .g-recaptcha(data-sitekey=recaptchaSiteKey)
             else
               strong DEV MODE: form submit unavailable

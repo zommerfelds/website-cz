@@ -4,7 +4,7 @@
   "description": "personal website",
   "private": true,
   "scripts": {
-    "serve": "./node_modules/.bin/http-server client/dist& ./node_modules/.bin/watch 'echo Re-building...; node client/build.js; echo -n Done -\\ ; date' client/src",
+    "serve": "./node_modules/.bin/http-server client/dist& ./node_modules/.bin/watch 'echo Re-building...; DEV_MODE=true node client/build.js; echo -n Done -\\ ; date' client/src",
     "deploy-backend": "bash deploy-backend.sh",
     "deploy-frontend": "node client/build.js && `npm bin`/sls client deploy",
     "deploy": "npm run deploy-backend && npm run deploy-frontend"
