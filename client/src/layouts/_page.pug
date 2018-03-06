@@ -18,7 +18,7 @@ mixin navmenu
         | Blog
     each post in posts
       li.subnav
-        a(href='/#{post.path}')
+        a(href='/' + post.path)
           i.fa.fa-angle-right
           | #{post.title}
     li.subnav.subnav-last

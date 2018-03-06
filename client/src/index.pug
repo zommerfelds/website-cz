@@ -17,7 +17,7 @@ block page-content
     +content-block
       ul
       each post in posts
-        li #[a(href='/#{post.path}') #{post.title}]
+        li #[a(href='/' + post.path) #{post.title}]
   +section('about', 'About Me')
     +content-block
       .about-image
@@ -91,7 +91,7 @@ block page-content
             textarea(name='message', cols='30', rows='6', placeholder='Type your message here...', required)
           fieldset.col-sm-7
             if !devMode
-              .g-recaptcha(data-sitekey='#{recaptchaSiteKey}')
+              .g-recaptcha(data-sitekey=recaptchaSiteKey)
             else
               strong DEV MODE: form submit unavailable
           #contact-recaptcha-alert.col-sm-5
