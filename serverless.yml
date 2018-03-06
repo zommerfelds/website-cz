@@ -44,7 +44,7 @@ custom:
     bucketName: christian.zommerfelds.com
 
 resources:
-   # CloudFormation template syntax
+  # CloudFormation template syntax
   Resources:
     WebsiteChristianContact:
       Type: AWS::SNS::Topic
@@ -80,8 +80,8 @@ resources:
         Period: 300
         Statistic: Sum
         Threshold: 0
-    LogFilterMetric: # TODO: stack dimension
-      Type: "AWS::Logs::MetricFilter"
+    LogFilterMetric:
+      Type: AWS::Logs::MetricFilter
       Properties:
         FilterPattern: "ERROR"
         LogGroupName: "/aws/lambda/${self:service}-${self:custom.stage}-contact" # TODO: don't hard code this
