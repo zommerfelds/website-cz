@@ -1,9 +1,9 @@
 {
   "dependencies": {
-    "aws-sdk": "2.40.0",
-    "bluebird": "3.5.0",
-    "request": "2.81.0",
-    "request-promise": "4.2.0",
-    "validator": "7.0.0"
+    "aws-sdk": "2.205.0",
+    "bluebird": "3.5.1",
+    "request": "2.83.0",
+    "request-promise": "4.2.2",
+    "validator": "9.4.1"
   }
 }
