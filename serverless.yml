@@ -14,9 +14,8 @@ provider:
 
 package:
   exclude:
-    - "**"
-  include:
-    - "backend/**"
+    - client/**
+    - secrets.yml
 
 functions:
   contact:

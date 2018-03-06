@@ -20,10 +20,10 @@
   },
   "homepage": "https://github.com/zommerfelds/website-cz#readme",
   "dependencies": {
-    "bluebird": "3.5.1",
-    "request": "2.83.0",
-    "request-promise": "4.2.2",
-    "validator": "9.4.1"
+    "bluebird": "^3.5.1",
+    "request": "^2.83.0",
+    "request-promise": "^4.2.2",
+    "validator": "^9.4.1"
   },
   "devDependencies": {
     "babel-eslint": "^8.2.2",

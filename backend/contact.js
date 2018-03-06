@@ -49,7 +49,7 @@ function checkGRecaptcha(recaptchaResponse) {
     form: {
       secret: process.env.RECAPTCHA_SECRET,
       response: recaptchaResponse,
-      // remoteip: 'TODO: add this if it filter needs improvement'
+      // remoteip: 'add this if it filter needs improvement'
     },
   };
 
