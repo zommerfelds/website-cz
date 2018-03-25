@@ -8,6 +8,7 @@ const ignore = require('metalsmith-ignore');
 const uglify = require('metalsmith-uglify');
 const collections = require('metalsmith-collections');
 const layouts = require('metalsmith-layouts');
+const dateFormatter = require('metalsmith-date-formatter');
 
 require('./src/js/2-deploymentData'); // just make sure it exists
 
@@ -28,6 +29,7 @@ metalsmith(__dirname)
     outputDir: 'css/',
   }))
   .use(markdown())
+  .use(dateFormatter())
   .use(collections({
     posts: 'posts/**',
     sortBy: 'date',
