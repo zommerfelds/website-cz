@@ -9,7 +9,7 @@ block head
 mixin navmenu
   ul.navigation
     li
-      a(href=(isMainPage ? '' : '/') + '#top', class=(isMainPage ? 'smooth' : ''))
+      a(href=(isMainPage ? '#top' : '/'), class=(isMainPage ? 'smooth' : ''))
         i.fa.fa-globe
         | Welcome
     li
@@ -95,7 +95,7 @@ block content
         //-    i.fa.fa-rss
   
   // Main content
-  .main-content
+  .main-content(id='top')
     .container-fluid
       block page-content
       #footer.row
