@@ -29,12 +29,14 @@ metalsmith(__dirname)
     outputDir: 'css/',
   }))
   .use(markdown())
-  .use(dateFormatter())
   .use(collections({
-    posts: 'posts/**.html',
-    sortBy: 'date',
-    reverse: true,
+    posts: {
+      pattern: 'posts/**.html',
+      sortBy: 'date',
+      reverse: true,
+    }
   }))
+  .use(dateFormatter())
   .use(ignore('layouts/**'))
   .use((files, m, done) => {
     // there is a cyclical dependency between the plugins,
