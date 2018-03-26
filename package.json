@@ -1,7 +1,7 @@
 {
   "name": "website-christian",
   "version": "0.1.0",
-  "description": "personal website",
+  "description": "my personal website",
   "private": true,
   "scripts": {
     "serve": "./node_modules/.bin/http-server client/dist& ./node_modules/.bin/watch 'echo Re-building...; DEV_MODE=true node client/build.js; echo -n Done -\\ ; date' client/src",

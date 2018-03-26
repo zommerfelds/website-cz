@@ -18,8 +18,6 @@ console.log('Dev mode:', devMode);
 metalsmith(__dirname)
   .metadata({
     title: 'Christian Zommerfelds',
-    description: 'It\'s about saying »Hello« to the World!',
-    url: 'http://uiaeuiaeuiae',
     disableRecaptcha: devMode,
   })
   .source('./src')
