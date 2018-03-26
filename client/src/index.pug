@@ -16,8 +16,8 @@ block page-content
   +section('blog', 'Blog')
     +content-block
       ul
-      each post in posts
-        li #[a(href='/' + post.path) #{post.title}]
+        each post in posts
+          li #[a(href='/' + post.path) #{post.title}]
   +section('about', 'About Me')
     +content-block
       .content-image
