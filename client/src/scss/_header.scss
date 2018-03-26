@@ -64,7 +64,7 @@ h3.profile-title {
 	li {
 		display: block;
 		a {
-			padding: 15px $sidebar-padding-left;
+			padding: 8px $sidebar-padding-left;
 			display: block;
 			color: $white;
 			font-size: 14px;
@@ -87,11 +87,14 @@ h3.profile-title {
     padding-bottom: 0;
   }*/
   li.subnav a {
-    padding: 5px ($sidebar-padding-left + 7px);
-    font-size: 12px;
-    line-height: 6px;
+    padding: 4px ($sidebar-padding-left + 7px);
+    font-size: 11px;
+	margin-left: 14px;
+	line-height: 16px;
+	text-indent: -10px;
     i {
       font-size: 12px;
+	  margin-right: 5px;
     }
   }
   /*li.subnav a:before {
