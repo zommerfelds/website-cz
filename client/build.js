@@ -31,7 +31,7 @@ metalsmith(__dirname)
   .use(markdown())
   .use(dateFormatter())
   .use(collections({
-    posts: 'posts/**',
+    posts: 'posts/**.html',
     sortBy: 'date',
     reverse: true,
   }))
