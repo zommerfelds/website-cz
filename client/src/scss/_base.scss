@@ -102,3 +102,28 @@ hr {
 	font-size: 14px;
 	margin-bottom: 20px;
 }
+
+blockquote {
+	background: #f9f9f9;
+	border-left: 10px solid #ccc;
+	margin: 1.5em 0 0;
+	padding: 0.5em 10px;
+
+	@include media(min-width $phone) {
+		margin: 1.5em -10% 0 -7%;
+	}
+}
+
+blockquote:before {
+	font-family: serif;
+	color: #ccc;
+	content: '”';
+	font-size: 4em;
+	line-height: 0.1em;
+	margin-right: 0.25em;
+	vertical-align: -0.4em;
+}
+
+blockquote p {
+	display: inline;
+}
