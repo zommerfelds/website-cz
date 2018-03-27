@@ -1,7 +1,7 @@
 .content-image {
 	overflow: hidden;
 	@include media(min-width $phone) {
-		margin: 40px -10% 0px -7%;
+		margin: 40px -10% 0 -7%;
 	}
 	img {
 		width: 100%;
@@ -18,7 +18,7 @@
 .content-video {
 	overflow: hidden;
 	@include media(min-width $phone) {
-		margin: 40px -10% 0px -7%;
+		margin: 40px -10% 0 -7%;
 	}
 	position: relative;
 	padding-bottom: 56.25%; /* 16:9 */
