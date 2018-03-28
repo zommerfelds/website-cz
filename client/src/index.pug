@@ -6,13 +6,9 @@ block page-vars
 block page-content
   - var recaptchaSiteKey = '6LdtwxkUAAAAAO9EsfmQ21NFDOcSa6rCRwlZeXLT'
 
-  +content-block
-    .alert.alert-danger.fade.in
-      p Please note: This website is under construction.
-    
   +section('welcome', 'Welcome to my blog and personal website')
     +content-block
-      p I'm Christian Zommerfelds and I'm a computer scientist. Creating this website is mainly just a personal technical project, but also an attempt to write and share my thoughts with the world. If you have any comments, don't hesitate to #[a(href='#contact', class='smooth') leave a message]!
+      p My name is Christian Zommerfelds. I'm a passionate computer and data scientist. Creating this website was mainly just a personal technical and design project, but also an attempt to write down and share my thoughts with the world. If you have any comments, don't hesitate to #[a(href='#contact', class='smooth') leave a message]!
   +section('blog', 'Blog')
     +content-block
       ul
@@ -27,9 +23,9 @@ block page-content
       
       p I love ...
       ul
-        li #[b data science]#[br] I like to read about the newest research in neural networks and AI technoligy. One of my favorite papers at the moment is the one about #[a(href='https://www.cs.toronto.edu/~vmnih/docs/dqn.pdf', target='_blank') deep Q-networks].
+        li #[b data science]#[br] I read about the newest research in neural networks and AI technology. One of my favorite papers at the moment is the one about #[a(href='https://www.cs.toronto.edu/~vmnih/docs/dqn.pdf', target='_blank') deep Q-networks].
         li #[b game design]#[br] My first contact with programming was by making video games. I still love to design games and every once in a while, develop one.
-        li #[b beer brewing]#[br] A highly complex chemical process that creates amazing variaeties and tastes. Hopefully I'll get to post something about our family brewery soon.
+        li #[b beer brewing]#[br] A highly complex chemical process that creates amazing varieties and tastes. Hopefully I'll get to post something about our family brewery soon.
         li #[b startups]#[br] Transforming how businesses work and designing new technologies is a passion of mine. I'm getting ready to make my next big step...
 
       p Also find me on:
@@ -47,7 +43,8 @@ block page-content
   // PROJECTS
   +section('projects', 'Projects')
     +content-block
-      p This section will list a few projects that I have worked on.
+      .alert.alert-danger.fade.in
+        p Coming soon: This section will list a few projects that I am working on.
     //.row.projects-holder
       .col-md-4.col-sm-6
         .project-item
@@ -77,7 +74,7 @@ block page-content
   +section('contact', 'Contact Me')
     +content-block
       p
-        | Don't hesitate to send me a message via the form below.
+        | Don't hesitate to send me a message via the form below (even if it is to just say hi).
     +content-block
       .row
         form#contact-form.contact-form

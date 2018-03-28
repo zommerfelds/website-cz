@@ -3,6 +3,10 @@ extends _page
 block page-content
   +section('top', title)
     +content-block
+      .blog-tags
+        .blog-tags-label Tags:
+        each tag in tags.split(',')
+          code #{tag}
       .blog-date #{date}
     +content-block
       | !{contents}

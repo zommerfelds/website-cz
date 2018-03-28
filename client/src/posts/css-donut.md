@@ -2,6 +2,7 @@
 title: Donut Progress Bar in CSS and JavaScript
 date: 2018-01-21
 abstract: How to create a circular progress bar with an image inside.
+tags: CSS,JavaScript,HTML,web development
 ---
 
 This is my first blog post! It's not going to be a real blog post but more of a small web development demo about something I did for my team at work. If you are only here to see the HTML, JavaScript and CSS code, simply scroll down to the end.
