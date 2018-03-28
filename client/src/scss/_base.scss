@@ -98,9 +98,28 @@ hr {
 	margin-right: 10px;
 }
 
+.blog-tags {
+	font-size: 14px;
+	line-height: 1;
+	text-indent: -30px;
+	margin-left: 30px;
+	.blog-tags-label {
+		text-indent: 0;
+		width: 30px;
+		display: inline-block;
+	}
+	code {
+		text-indent: 0;
+		margin-left: 12px;
+		margin-bottom: 7px;
+		padding: 5px;
+		display: inline-block;
+	}
+}
+
 .blog-date {
 	font-size: 14px;
-	margin-bottom: 20px;
+	margin-bottom: 35px;
 }
 
 blockquote {
