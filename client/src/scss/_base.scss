@@ -54,13 +54,6 @@ h1, h2, h3, h4, h5 {
 	}
 }
 
-h4.widget-title {
-	font-size: 22px;
-	font-family: 'robotobold';
-	//text-transform: uppercase;
-	margin-bottom: 60px;
-}
-
 hr {
 	position: relative;
 	outline: 0;
@@ -90,8 +83,17 @@ hr {
 		margin-bottom: 15px;
 	}
 
-	h4 {
+	h1, h4 {
 		line-height: 1.5;
+		margin-bottom: 35px;
+		font-weight: bold;
+	}
+
+	h4.widget-title {
+		font-size: 22px;
+		font-family: 'robotobold';
+		//text-transform: uppercase;
+		margin-bottom: 50px;
 	}
 }
 
