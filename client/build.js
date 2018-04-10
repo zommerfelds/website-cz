@@ -7,6 +7,7 @@ const pug = require('metalsmith-pug');
 const ignore = require('metalsmith-ignore');
 const uglify = require('metalsmith-uglify');
 const collections = require('metalsmith-collections');
+const filterCollections = require('metalsmith-collections-filter');
 const layouts = require('metalsmith-layouts');
 const dateFormatter = require('metalsmith-date-formatter');
 
@@ -33,6 +34,9 @@ metalsmith(__dirname)
       sortBy: 'date',
       reverse: true,
     }
+  }))
+  .use(filterCollections({
+    posts: post => !post.draft
   }))
   .use(dateFormatter())
   .use(ignore('layouts/**'))
