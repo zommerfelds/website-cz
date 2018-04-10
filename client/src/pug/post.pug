@@ -1,4 +1,4 @@
-extends _page
+extends page
 
 block page-content
   +section('top', title)
@@ -6,7 +6,7 @@ block page-content
       .blog-header
         if draft
           .alert.alert-danger.fade.in
-            p This post is a draft and is not meant for wider distribution.
+            p This post is a draft and is not meant for wider distribution yet.
         .blog-date #{date}
         .blog-tags
           .blog-tags-label Tags:

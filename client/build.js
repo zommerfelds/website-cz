@@ -39,7 +39,6 @@ metalsmith(__dirname)
     posts: post => !post.draft
   }))
   .use(dateFormatter())
-  .use(ignore('layouts/**'))
   .use((files, m, done) => {
     // there is a cyclical dependency between the plugins,
     // so let's fix some permalinks before we run pug
@@ -51,6 +50,7 @@ metalsmith(__dirname)
     }
     done();
   })
+  .use(ignore('pug/**')) // don't compile helper files, they will be linked from the main entry points
   .use(pug({
     pretty: devMode,
     useMetadata: true,
@@ -59,7 +59,7 @@ metalsmith(__dirname)
     relative: false,
   }))
   .use(layouts({
-    directory: 'src/layouts',
+    directory: 'src/pug',
     default: 'post.pug',
     pattern: 'posts/**',
   }))
