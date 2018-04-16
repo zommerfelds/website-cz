@@ -1,24 +1,25 @@
 .content-image {
 	overflow: hidden;
 	@include media(min-width $phone) {
-		margin: 40px -10% 0 -7%;
+		margin: 45px -10% 0 -7%;
 	}
 	img {
 		width: 100%;
 		display: block;
 	}
 }
+
 .content-media-caption {
 	text-align: right;
 	font-style: italic;
-	margin-bottom: 40px;
+	margin-bottom: 25px;
 	font-size: 80%;
 }
 
 .content-video {
 	overflow: hidden;
 	@include media(min-width $phone) {
-		margin: 40px -10% 0 -7%;
+		margin: 45px -10% 0 -7%;
 	}
 	position: relative;
 	padding-bottom: 56.25%; /* 16:9 */
