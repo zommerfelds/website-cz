@@ -1,8 +1,7 @@
 ---
 title: Thoughts On Free Will
-date: 2018-04-15
+date: 2018-06-09
 description: Is free will real? Philosophical discussion about determinism, free will and compatibilism.
-draft: true
 tags: philosophy,free will,Sam Harris,Daniel Dennett,compatibilism,consciousness
 ---
 
@@ -55,6 +54,6 @@ I would love to hear of a different theory that let's us be fundamentally free e
 Let's also remember that our intuitions about our own brain might be completely wrong and not reflect what is actually going on behind the scenes. Neuroscience might be the only way to shine more light into the free will discussion. But who knows if we even have enough brain capacity to understand our own brain.
 
 <div class="content-image"><img src="/posts/free-will-hamilton.jpg" alt="Bird flying"></div>
-<div class="content-media-caption">Photo by Christian Zommerfelds</div>
+<div class="content-media-caption">City of Hamilton, Ontario, Canada. Photo by Christian Zommerfelds</div>
 
-Anyway, we are the most "free" beings in the universe that we have observed so far, so in that sense I think we can call ourselves pretty free!
+Anyhow, we are the most "free" beings in the universe that we have observed so far, so in that sense I think we can call ourselves pretty free!

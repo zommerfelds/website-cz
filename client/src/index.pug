@@ -8,21 +8,22 @@ block page-content
 
   +section('welcome', 'Welcome to my blog and personal website')
     +content-block
-      p My name is Christian Zommerfelds. I'm a passionate computer and data scientist. Creating this website is mainly just a personal, technical and design project, but also an attempt to write down and share my thoughts with the world. If you have any comments, don't hesitate to #[a(href='#contact', class='smooth') leave a message]!
+      p My name is Christian Zommerfelds. I'm a passionate computer and data scientist. Creating this website is/was mainly a fun technical and design project, but it's also an attempt to write down and share my thoughts with the world. If you have any comments, please don't hesitate to #[a(href='#contact', class='smooth') leave a message]!
   include pug/blog-content.pug
   +section('about', 'About Me')
     +content-block
       .content-image
         img(src='img/climbing.jpg', alt='about me')
       .content-media-caption Rock climbing the Chemiflue in Switzerland.
-      p I currently live in Waterloo region in Canada and work as a software developer. Feel free to download my resume #[a(href='files/christian-zommerfelds-resume.pdf', target='_blank') here].
+      p I currently live in Waterloo region in Canada and work as a software developer in the education industry. Feel free to download my resume #[a(href='files/christian-zommerfelds-resume.pdf', target='_blank') here].
       
       p I love ...
       ul
-        li #[b data science]#[br] I read about the newest research in neural networks and AI technology. One of my favorite papers at the moment is the one about #[a(href='https://www.cs.toronto.edu/~vmnih/docs/dqn.pdf', target='_blank') deep Q-networks].
-        li #[b game design]#[br] My first contact with programming was by making video games. I still love to design games and every once in a while, develop one.
-        li #[b beer brewing]#[br] A highly complex chemical process that creates amazing varieties and tastes. Hopefully I'll get to post something about our family brewery soon.
-        li #[b startups]#[br] Transforming how businesses work and designing new technologies is a passion of mine. I'm getting ready to make my next big step...
+        li #[b data science]#[br] I try to keep up with the newest research in neural networks and AI technology. Deep reinforcement learning is a captivating domain and the paper about #[a(href='https://www.cs.toronto.edu/~vmnih/docs/dqn.pdf', target='_blank') deep Q-networks] is one of my favorites overall!
+        li #[b game design]#[br] My first contact with programming was made by making video games. I still love to design games and every once in a while, develop one.
+        li #[b startups]#[br] Transforming how businesses work and designing new technologies is a passion of mine. I'm getting ready to make my next big step in this direction.
+        li #[b beer brewing]#[br] Beer originates from a highly complex biochemical process that creates amazing varieties and tastes. Hopefully I'll get to post something about our family brewery soon (this is why I registered the #[i zommerfelds.com] domain in the first place).
+        li #[b rock climbing]#[br] Rock climbing can both be a very zen and intense sport. I never get tired of it!
 
       p Also find me on:
       .button-list
