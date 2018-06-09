@@ -6,7 +6,7 @@
   "scripts": {
     "serve": "./node_modules/.bin/http-server client/dist& ./node_modules/.bin/watch 'echo Re-building...; DEV_MODE=true node client/build.js; echo -n Done -\\ ; date' client/src",
     "deploy-backend": "bash deploy-backend.sh",
-    "deploy-frontend": "node client/build.js && `npm bin`/sls client deploy",
+    "deploy-frontend": "node client/build.js && `npm bin`/sls client deploy --no-confirm",
     "deploy": "npm run deploy-backend && npm run deploy-frontend"
   },
   "repository": {
@@ -21,15 +21,15 @@
   "homepage": "https://github.com/zommerfelds/website-cz#readme",
   "dependencies": {
     "bluebird": "^3.5.1",
-    "request": "^2.83.0",
+    "request": "^2.87.0",
     "request-promise": "^4.2.2",
-    "validator": "^9.4.1"
+    "validator": "^10.3.0"
   },
   "devDependencies": {
-    "eslint": "^4.18.2",
+    "eslint": "^4.19.1",
     "eslint-config-airbnb-base": "^12.1.0",
     "eslint-config-es5": "^0.5.0",
-    "eslint-plugin-import": "^2.9.0",
+    "eslint-plugin-import": "^2.12.0",
     "http-server": "^0.11.1",
     "jstransformer-pug": "^0.3.0",
     "metalsmith": "^2.3.0",
@@ -42,10 +42,10 @@
     "metalsmith-permalinks": "^0.5.0",
     "metalsmith-pug": "^2.0.0",
     "metalsmith-sass": "^1.5.1",
-    "metalsmith-uglify": "^2.1.1",
-    "pug": "^2.0.0-rc.4",
-    "serverless": "^1.26.1",
-    "serverless-finch": "^1.4.0",
+    "metalsmith-uglify": "^2.3.0",
+    "pug": "^2.0.3",
+    "serverless": "^1.27.3",
+    "serverless-finch": "^2.1.2",
     "serverless-resources-env": "^0.3.0",
     "watch": "^1.0.2"
   }
