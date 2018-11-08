@@ -1,7 +1,7 @@
 .content-image {
 	overflow: hidden;
 	@include media(min-width $phone) {
-		margin: 45px -10% 0 -7%;
+		margin: 35px -10% 0 -7%;
 	}
 	img {
 		width: 100%;
