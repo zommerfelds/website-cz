@@ -45,7 +45,7 @@ If you only have 9 minutes, the video below by Crash Course gives a nice simplif
 
 Sam Harris clearly states that he doesn't believe in compatibilism. But his ideas about the consequences of not having free will such as still having moral responsibility for your actions sound a bit like the compatibilism Dennett argues for. Maybe I'm wrong but it seems like Harris' and Dennett's opinions differ only in terms of how you define free will.
 
-# Final notes
+## Final notes
 
 So far I personally think that compatibilism is not a very satisfying theory because it kind of redefines free will to be just "practical" free will, and not the complete free will we feel we have (or maybe are taught to have?). However, no free will is not very "satisfying" either. I still need to study the compatibilist idea more before I can dismiss it and I'll start by reading [Freedom Evolves](https://www.amazon.ca/Freedom-Evolves-Daniel-C-Dennett/dp/0142003840) to understand Dennett's idea more.
 
