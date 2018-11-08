@@ -122,24 +122,23 @@ h3.profile-title {
 	}
 }
 
-
-.responsive-header {
-	background: $dark-bg;
-	//text-align: center;
-	@include media(max-width $tablet) {
+@include media(max-width $tablet) {
+	.responsive-header {
+		background: $dark-bg;
+		//text-align: center;
 		.main-navigation {
-    	margin: 0;
+			margin: 0;
 			//margin-top: 0px;
 			display: none;
-      background: $light-accent;
+			background: $light-accent;
+			position: absolute;
+			z-index: 1;
+			width: 100%;
 		}
-	}
-	p {
-		@include media(max-width $tablet) {
-			color: $white;
+		
+		p {
+				color: $white;
 		}
-	}
-	@include media(max-width $tablet) {
 		.profile-image {
 			float: left;
 			width: 100px;
@@ -168,6 +167,10 @@ h3.profile-title {
 			}
 		}
 	}
+}
+
+.toggle-menu-container {
+	position: relative;
 }
 
 .toggle-menu {

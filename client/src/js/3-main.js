@@ -28,6 +28,11 @@
       return false;
     });
 
+    $('.responsive-menu').click(function click() {
+      $('.responsive-menu').stop(true, true).slideToggle();
+      return false;
+    });
+
     $('#contact-form').submit(function submit(e) {
       e.preventDefault(); // avoid to execute the actual submit of the form.
 

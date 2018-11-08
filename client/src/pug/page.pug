@@ -68,11 +68,12 @@ block content
       .row
         .col-md-12
           +profile
-      a.toggle-menu(href='#')
-        i.fa.fa-bars
-        span Navigation
-      .main-navigation.responsive-menu
-        +navmenu
+      .toggle-menu-container
+        a.toggle-menu(href='#')
+          i.fa.fa-bars
+          span Navigation
+        .main-navigation.responsive-menu
+          +navmenu
   
   // Desktop sidebar
   .sidebar-menu.hidden-xs.hidden-sm
