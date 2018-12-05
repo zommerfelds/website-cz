@@ -75,6 +75,7 @@ function validateContent(contactForm) {
 
 module.exports.sendEmail = (event, context, callback) => {
   console.log('Received event:', event);
+  // TODO: use async await
 
   let contactForm;
 
