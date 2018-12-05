@@ -1,0 +1,4 @@
+name: website-cz-backend
+runtime: nodejs
+description: Lambda function for sending e-mails via contact form
+main: pulumi.js
