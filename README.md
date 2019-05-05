@@ -2,17 +2,15 @@
 
 My personal website: [christian.zommerfelds.com](http://christian.zommerfelds.com)
 
+## Running on CodeSandbox
+
+[Click here](https://codesandbox.io/s/github/zommerfelds/website-cz) to open this project in CodeSandbox.
+
+## Dev notes
+
 ```
 nvm use 8
 ```
-
-Use `npm run` to check available commands.
-
-## Running on CodeSandbox
-
-Bla
-
-## Dev notes
 
 Test Lambda function:
 
