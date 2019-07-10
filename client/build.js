@@ -11,33 +11,40 @@ const filterCollections = require('metalsmith-collections-filter');
 const layouts = require('metalsmith-layouts');
 const dateFormatter = require('metalsmith-date-formatter');
 
-require('./src/js/2-deploymentData'); // just make sure it exists
+const deploymentData = require('./src/js/2-deploymentData'); // just make sure it exists
 
-const devMode = (process.env.DEV_MODE === 'true');
+const devMode =
+  process.env.DEV_MODE === 'true' || deploymentData.contactUrl === undefined;
 console.log('Dev mode:', devMode);
 
 metalsmith(__dirname)
   .metadata({
     title: 'Christian Zommerfelds',
-    disableRecaptcha: devMode,
+    disableRecaptcha: devMode
   })
   .source('./src')
   .destination('./dist')
   // .clean(false)
-  .use(sass({
-    outputDir: 'css/',
-  }))
+  .use(
+    sass({
+      outputDir: 'css/'
+    })
+  )
   .use(markdown())
-  .use(collections({
-    posts: {
-      pattern: 'posts/**.html',
-      sortBy: 'date',
-      reverse: true,
-    }
-  }))
-  .use(filterCollections({
-    posts: post => !post.draft
-  }))
+  .use(
+    collections({
+      posts: {
+        pattern: 'posts/**.html',
+        sortBy: 'date',
+        reverse: true
+      }
+    })
+  )
+  .use(
+    filterCollections({
+      posts: post => !post.draft
+    })
+  )
   .use(dateFormatter())
   .use((files, m, done) => {
     // there is a cyclical dependency between the plugins,
@@ -51,23 +58,33 @@ metalsmith(__dirname)
     done();
   })
   .use(ignore('pug/**')) // don't compile helper files, they will be linked from the main entry points
-  .use(pug({
-    pretty: devMode,
-    useMetadata: true,
-  }))
-  .use(permalinks({
-    relative: false,
-  }))
-  .use(layouts({
-    directory: 'src/pug',
-    default: 'post.pug',
-    pattern: 'posts/**',
-  }))
-  .use(uglify({
-    root: 'js',
-    concat: { file: 'scripts.min.js' },
-    removeOriginal: true,
-  }))
-  .build((err) => {
-    if (err) { throw err; }
+  .use(
+    pug({
+      pretty: devMode,
+      useMetadata: true
+    })
+  )
+  .use(
+    permalinks({
+      relative: false
+    })
+  )
+  .use(
+    layouts({
+      directory: 'src/pug',
+      default: 'post.pug',
+      pattern: 'posts/**'
+    })
+  )
+  .use(
+    uglify({
+      root: 'js',
+      concat: { file: 'scripts.min.js' },
+      removeOriginal: true
+    })
+  )
+  .build(err => {
+    if (err) {
+      throw err;
+    }
   });
