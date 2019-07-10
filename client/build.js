@@ -10,6 +10,7 @@ const collections = require('metalsmith-collections');
 const filterCollections = require('metalsmith-collections-filter');
 const layouts = require('metalsmith-layouts');
 const dateFormatter = require('metalsmith-date-formatter');
+const fs = require('fs');
 
 const deploymentData = eval(fs.readFileSync('./2-deploymentData.js', 'utf8'));
 
