@@ -11,7 +11,7 @@ const filterCollections = require('metalsmith-collections-filter');
 const layouts = require('metalsmith-layouts');
 const dateFormatter = require('metalsmith-date-formatter');
 
-const deploymentData = require('./src/js/2-deploymentData'); // just make sure it exists
+const deploymentData = eval(fs.readFileSync('./2-deploymentData.js', 'utf8'));
 
 const devMode =
   process.env.DEV_MODE === 'true' || deploymentData.contactUrl === undefined;
