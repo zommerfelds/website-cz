@@ -15,6 +15,7 @@ const deploymentData = require('./src/js/2-deploymentData'); // just make sure i
 
 const devMode =
   process.env.DEV_MODE === 'true' || deploymentData.contactUrl === undefined;
+console.log('Deployment data:', JSON.stringify(deploymentData));
 console.log('Dev mode:', devMode);
 
 metalsmith(__dirname)
