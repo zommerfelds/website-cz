@@ -1,6 +1,6 @@
 # Website - Christian Zommerfelds
 
-My personal website: [christian.zommerfelds.com](http://christian.zommerfelds.com)
+This repository contains the source code for my personal website: [christian.zommerfelds.com](http://christian.zommerfelds.com)
 
 ## Running on CodeSandbox
 
