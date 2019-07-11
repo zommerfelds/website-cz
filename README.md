@@ -4,7 +4,11 @@ This repository contains the source code for my personal website: [christian.zom
 
 ## Running on CodeSandbox
 
-[Click here](https://codesandbox.io/s/github/zommerfelds/website-cz) to open this project in CodeSandbox.
+To modify code right on the browser, [click here](https://codesandbox.io/s/github/zommerfelds/website-cz) to open this project in CodeSandbox.
+
+## Deployment
+
+Every push to `master` will automatically deploy to AWS. This works using [GitHub Actions](.github/main.workflow).
 
 ## Dev notes
 
