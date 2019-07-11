@@ -12,7 +12,7 @@ const layouts = require('metalsmith-layouts');
 const dateFormatter = require('metalsmith-date-formatter');
 const fs = require('fs');
 
-const deploymentData = eval(fs.readFileSync('./src/js/2-deploymentData.js', 'utf8'));
+eval(fs.readFileSync('client/src/js/2-deploymentData.js', 'utf8'));
 
 const devMode =
   process.env.DEV_MODE === 'true' || deploymentData.contactUrl === undefined;
