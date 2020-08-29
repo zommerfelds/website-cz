@@ -44,7 +44,7 @@ metalsmith(__dirname)
   )
   .use(
     filterCollections({
-      posts: post => !post.draft
+      posts: (post) => !post.draft
     })
   )
   .use(dateFormatter())
@@ -85,7 +85,7 @@ metalsmith(__dirname)
       removeOriginal: true
     })
   )
-  .build(err => {
+  .build((err) => {
     if (err) {
       throw err;
     }

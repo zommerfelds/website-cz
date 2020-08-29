@@ -27,16 +27,7 @@
     });
 
     $('.toggle-menu').click(function click() {
-      $('.responsive-menu')
-        .stop(true, true)
-        .slideToggle();
-      return false;
-    });
-
-    $('.responsive-menu').click(function click() {
-      $('.responsive-menu')
-        .stop(true, true)
-        .slideToggle();
+      $('.responsive-menu').stop(true, true).slideToggle();
       return false;
     });
 
