@@ -43,7 +43,7 @@
     "metalsmith-pug": "^2.0.0",
     "metalsmith-sass": "^1.5.1",
     "metalsmith-uglify": "^2.3.2",
-    "pug": "^2.0.3",
+    "pug": "^3.0.1",
     "serverless": "^1.32.0",
     "serverless-finch": "^2.3.2",
     "serverless-resources-env": "^0.3.1",
