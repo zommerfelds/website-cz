@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - master
+      
+# Only run one job at a time
+concurrency: singleton-group
 
 jobs:
   build:
