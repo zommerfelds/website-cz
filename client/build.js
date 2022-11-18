@@ -1,14 +1,14 @@
 /* eslint import/no-extraneous-dependencies: 0 */
 const metalsmith = require('metalsmith');
-const markdown = require('metalsmith-markdown');
-const permalinks = require('metalsmith-permalinks');
-const sass = require('metalsmith-sass');
+const markdown = require('@metalsmith/markdown');
+const permalinks = require('@metalsmith/permalinks');
+const sass = require('@metalsmith/sass');
 const pug = require('metalsmith-pug');
-const ignore = require('metalsmith-ignore');
+const remove = require('@metalsmith/remove');
 const uglify = require('metalsmith-uglify');
-const collections = require('metalsmith-collections');
+const collections = require('@metalsmith/collections');
 const filterCollections = require('metalsmith-collections-filter');
-const layouts = require('metalsmith-layouts');
+const layouts = require('@metalsmith/layouts');
 const dateFormatter = require('metalsmith-date-formatter');
 const fs = require('fs');
 
@@ -59,7 +59,7 @@ metalsmith(__dirname)
     }
     done();
   })
-  .use(ignore('pug/**')) // don't compile helper files, they will be linked from the main entry points
+  .use(remove('pug/**')) // don't compile helper files, they will be linked from the main entry points
   .use(
     pug({
       pretty: devMode,
