@@ -44,7 +44,7 @@
     "metalsmith-sass": "^2.0.0",
     "metalsmith-uglify": "^2.4.1",
     "node-sass": "^8.0.0",
-    "pug": "^3.0.2",
+    "pug": "^3.0.3",
     "serverless": "^3.24.1",
     "serverless-finch": "^4.0.0",
     "serverless-resources-env": "^0.3.1",
