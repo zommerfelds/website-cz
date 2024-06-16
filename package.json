@@ -40,7 +40,7 @@
     "metalsmith": "^2.5.1",
     "metalsmith-collections-filter": "^1.0.3",
     "metalsmith-date-formatter": "^1.0.2",
-    "metalsmith-pug": "^2.0.0",
+    "metalsmith-pug": "^3.0.1",
     "metalsmith-sass": "^2.0.0",
     "metalsmith-uglify": "^2.4.1",
     "node-sass": "^8.0.0",
