@@ -1,10 +1,14 @@
 // The AWS SDK is included by default in Lambda, so we don't list it as a dependency
-const SNS = require('aws-sdk/clients/sns'); // eslint-disable-line import/no-extraneous-dependencies
+var AWS = require('aws-sdk');
+const snsRegion = process.env.AWS_REGION;
+
+AWS.config.update({region: snsRegion});
+const SNS = new AWS.SNS({apiVersion: '2010-03-31'})
+
 const rp = require('request-promise');
 const validator = require('validator');
 const Promise = require('bluebird');
 
-const snsRegion = process.env.AWS_REGION;
 const sns = new SNS({ snsRegion });
 const gRecaptchaUrl = 'https://www.google.com/recaptcha/api/siteverify';
 
