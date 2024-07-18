@@ -3,7 +3,7 @@ org: zommerfelds
 # "app" enables Serverless Framework Dashboard features and sharing them with other Services.
 app: cz-website
 service: website-cz
-
+configValidationMode: off # Recent versions of serverless don't like the "custom" properties. Would be nice to remove this line.
 provider:
   name: aws
   runtime: nodejs20.x
@@ -31,7 +31,7 @@ functions:
           cors: true
     environment:
       RECAPTCHA_SECRET: ${env:RECAPTCHA_SECRET}
-      CORS_ORIGIN: '*' # Could put http://christian.zommerfelds.com, but there is no security benefit in this case
+      CORS_ORIGIN: "*" # Could put http://christian.zommerfelds.com, but there is no security benefit in this case
     custom:
       env-resources:
         - WebsiteChristianContact
@@ -53,8 +53,8 @@ resources:
       Type: AWS::SNS::Topic
       Properties:
         Subscription:
-        - Endpoint: ${env:CONTACT_EMAIL}
-          Protocol: email
+          - Endpoint: ${env:CONTACT_EMAIL}
+            Protocol: email
     InvocationErrors:
       Type: AWS::CloudWatch::Alarm
       Properties:
@@ -64,7 +64,7 @@ resources:
         Dimensions:
           - Name: FunctionName
             Value: # ${self:service}-${self:custom.stage}-contact
-              Ref: ContactLambdaFunction  # assume this is the internal resource name given by Serverless
+              Ref: ContactLambdaFunction # assume this is the internal resource name given by Serverless
         EvaluationPeriods: 1
         MetricName: Errors
         Namespace: AWS/Lambda
@@ -85,7 +85,7 @@ resources:
         Threshold: 0
     LogFilterMetric:
       Type: AWS::Logs::MetricFilter
-      DependsOn: ContactLambdaFunction  # assume this is the internal resource name given by Serverless
+      DependsOn: ContactLambdaFunction # assume this is the internal resource name given by Serverless
       Properties:
         FilterPattern: "ERROR"
         LogGroupName: "/aws/lambda/${self:service}-${self:custom.stage}-contact" # TODO: don't hard code this
