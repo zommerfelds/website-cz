@@ -57,10 +57,11 @@ block page-content
               p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam cursus.
   // CONTACT
   +section('contact', 'Contact Me')
-    +content-block
+    // TODO: fix contact
+    //+content-block
       p
         | Don't hesitate to send me a message via the form below.
-    +content-block
+    //+content-block
       .row
         form#contact-form.contact-form
           fieldset.col-md-4.col-sm-6
@@ -81,7 +82,7 @@ block page-content
             input#submit-contact.button.big.default(type='submit', value='Send Message')
     +content-block
       #contact-response
-      p Also find me on:
+      p Find me on:
         .button-list
           a.button-list-item.btn.btn-info(href='https://twitter.com/czommerfelds', target='_blank')
             i.fa.fa-twitter
