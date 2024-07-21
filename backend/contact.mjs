@@ -1,15 +1,15 @@
 // The AWS SDK is included by default in Lambda, so we don't list it as a dependency
 // TODO: this is currently broken: new runtime is using SDK v3
-const SNS = require('aws-sdk/clients/sns'); // eslint-disable-line import/no-extraneous-dependencies
-const rp = require('request-promise');
-const validator = require('validator');
-const Promise = require('bluebird');
+import { SNSClient, PublishCommand } from "@aws-sdk/client-sns";
+import * as rp from 'request-promise';
+import 'validator';
+import 'bluebird';
 
-const snsRegion = process.env.AWS_REGION;
-const sns = new SNS({ snsRegion });
+// const snsRegion = process.env.AWS_REGION;
+const sns = new SNSClient();
 const gRecaptchaUrl = 'https://www.google.com/recaptcha/api/siteverify';
 
-console.log('INIT => snsRegion:', snsRegion);
+// console.log('INIT => snsRegion:', snsRegion);
 console.log('INIT => process.env.CF_WebsiteChristianContact:', process.env.CF_WebsiteChristianContact);
 
 class ApiError extends Error {
@@ -35,13 +35,20 @@ const mandatoryFields = ['name', 'email', 'message', 'g-recaptcha-response'];
 function snsPublish(name, email, message) {
   const snsMessage = `Name: ${name}\nE-mail: ${email}\n\n${message}`;
 
-  const params = {
+  /*const params = {
     Message: snsMessage,
     Subject: `New contact request (${name})`,
     TopicArn: process.env.CF_WebsiteChristianContact,
   };
 
-  return sns.publish(params).promise();
+  return sns.publish(params).promise();*/
+
+  return snsClient.send(
+    new PublishCommand({
+      Message: message,
+      TopicArn: process.env.CF_WebsiteChristianContact,
+    }),
+  );
 }
 
 function checkGRecaptcha(recaptchaResponse) {
@@ -74,7 +81,7 @@ function validateContent(contactForm) {
   }
 }
 
-module.exports.sendEmail = (event, context, callback) => {
+export const handler = async (event, context, callback) => {
   console.log('Received event:', event);
   // TODO: use async await
 

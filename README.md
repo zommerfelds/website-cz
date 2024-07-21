@@ -21,3 +21,12 @@ Test Lambda function:
 ```
 RECAPTCHA_SECRET=6LeIxAcTAAAAAGG-vFI1TnRWxMZNFuojJ4WifJWe CONTACT_EMAIL=put@email.here npx sls invoke local -f contact -p backend/test-input.json
 ```
+
+Deploy:
+```
+gp idp login aws --role-arn arn:aws:iam::168146358807:role/local-dev-admin-access
+RECAPTCHA_SECRET=6LeIxAcTAAAAAGG-vFI1TnRWxMZNFuojJ4WifJWe CONTACT_EMAIL=put@email.here bash deploy-backend.sh
+RECAPTCHA_SECRET=6LeIxAcTAAAAAGG-vFI1TnRWxMZNFuojJ4WifJWe CONTACT_EMAIL=put@email.here npx sls invoke -f contact -p backend/test-input.json
+
+(export RECAPTCHA_SECRET=6LeIxAcTAAAAAGG-vFI1TnRWxMZNFuojJ4WifJWe CONTACT_EMAIL=put@email.here; bash deploy-backend.sh && npx sls invoke -f contact -p backend/test-input.json)
+```
