@@ -1,0 +1,23 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Install local dev dependencies",
+			"type": "shell",
+			"command": "npx subset install --npm local-dev",
+		},
+		{
+			"type": "npm",
+			"script": "serve",
+			"problemMatcher": [],
+			"label": "npm: serve",
+			"runOptions": {
+				"runOn": "folderOpen"
+			},
+			"dependsOrder": "sequence",
+			"dependsOn": [
+				"Install local dev dependencies",
+			],
+		}
+	]
+}

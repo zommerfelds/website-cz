@@ -1,6 +1,35 @@
+# NOTE: Whenever possible, prefer to use .vscode to make the tasks work not only on Gitpod but also locally on vscode.
+
 tasks:
-  - init: npm install
-    command: npm run serve
+  - before: |
+      (
+        set -e
+        mkdir -p /workspace/.npm-global
+        npm config set prefix /workspace/.npm-global
+
+        # Export aws commend to all new bash shells
+        echo 'export PATH="$PATH:/workspace/bin"' >> $HOME/.bashrc
+      )
+      # Exit terminal after making changes to the environment, otherwise some things won't be properly set.
+      exit
+  - init: |
+      (
+        set -e
+        pip install livereload
+        npm install -g install-subset 
+
+        echo "Updating AWS"
+        cd "$(mktemp -d)"
+        curl -fSsl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+        unzip -qq awscliv2.zip
+        ./aws/install --update --install-dir /workspace/aws --bin-dir /workspace/bin
+      )
+      # Exit terminal after making changes to the environment, otherwise some things won't be properly set.
+      exit
+
+vscode:
+  extensions:
+    - Wscats.eno
 ports:
   - port: 8080
     onOpen: open-preview

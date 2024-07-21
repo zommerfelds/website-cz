@@ -49,5 +49,14 @@
     "serverless-finch": "^4.0.4",
     "serverless-resources-env": "^0.3.1",
     "watch": "^0.13.0"
+  },
+  "subsets": {
+      "local-dev": {
+          "exclude": [
+              "serverless",
+              "serverless-finch",
+              "serverless-resources-env"
+          ]
+      }
   }
 }

@@ -19,5 +19,5 @@ nvm use 20
 Test Lambda function:
 
 ```
-npx sls invoke local -f contact -p backend/test-input.json
+RECAPTCHA_SECRET=6LeIxAcTAAAAAGG-vFI1TnRWxMZNFuojJ4WifJWe CONTACT_EMAIL=put@email.here npx sls invoke local -f contact -p backend/test-input.json
 ```
