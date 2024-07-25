@@ -12,6 +12,8 @@ Every push to `master` will automatically deploy to AWS. This works using [GitHu
 
 ## Dev notes
 
+Private notes: [Google Doc](https://docs.google.com/document/d/1WJ87UocBy3VOwLWRSMfH6BrdA_wtsploBNz2FiJqehA/edit)
+
 ```
 nvm use 20
 ```
